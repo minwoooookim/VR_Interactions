@@ -18,7 +18,7 @@ namespace QWERTY_Keyboard
 
         private bool isShifted = false;
 
-        private void Awake()
+        private void Start()
         {
             KeyboardManager.instance.shiftButton.onClick.AddListener(HandleShift);
             thisKey = GetComponent<Button>();
