@@ -11,6 +11,8 @@ namespace QWERTY_Keyboard
     {
         public static KeyboardManager instance;
         public Button shiftButton;
+        public Button deleteButton;
+        public Button spaceButton;
         private Image shiftButtonImage;
 
         public TMP_InputField inputField;
@@ -24,6 +26,8 @@ namespace QWERTY_Keyboard
             }
             shiftButton.onClick.AddListener(Shifted);
             shiftButtonImage = shiftButton.gameObject.GetComponent<Image>();
+            deleteButton.onClick.AddListener(Delete);
+            spaceButton.onClick.AddListener(Space);
         }
 
         private void Shifted()
@@ -38,6 +42,19 @@ namespace QWERTY_Keyboard
             {
                 shiftButtonImage.color = Color.white;
             }
+        }
+
+        private void Delete()
+        {
+            if (inputField.text.Length > 0)
+            {
+                inputField.text = inputField.text.Substring(0, inputField.text.Length - 1);
+            }
+        }
+
+        private void Space()
+        {
+            inputField.text += " ";
         }
     }
 }
