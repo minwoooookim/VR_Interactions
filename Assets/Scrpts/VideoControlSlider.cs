@@ -9,11 +9,10 @@ using UnityEngine.EventSystems;
 namespace VideoPlayerControlScript
 {
     public class VideoControlSlider : MonoBehaviour
-        //, IPointerDownHandler, IPointerUpHandler
     {
-        public VideoPlayer videoPlayer; // VideoPlayer 컴포넌트
-        public Slider videoSlider;     // 재생 위치를 조절할 슬라이더
-        public TextMeshProUGUI timeText;          // 현재 재생 시간을 표시할 텍스트
+        public VideoPlayer videoPlayer;     // VideoPlayer 컴포넌트
+        public Slider videoSlider;          // 재생 위치를 조절할 슬라이더
+        public TextMeshProUGUI timeText;    // 현재 재생 시간을 표시할 텍스트
 
         private bool isDragging = false;
 
@@ -22,55 +21,49 @@ namespace VideoPlayerControlScript
             // 슬라이더의 최대값을 비디오 길이에 맞게 설정
             videoPlayer.prepareCompleted += OnVideoPrepared;
             videoPlayer.Prepare();
+            videoSlider.onValueChanged.AddListener(OnSliderValueChanged);
 
-            // 슬라이더 이벤트 리스너 추가
-            videoSlider.onValueChanged.AddListener(delegate { OnSliderValueChanged(); });
+            // EventTrigger를 사용하여 슬라이더의 클릭 이벤트 처리
+            EventTrigger trigger = videoSlider.gameObject.AddComponent<EventTrigger>();
+
+            EventTrigger.Entry entryDown = new EventTrigger.Entry();
+            entryDown.eventID = EventTriggerType.PointerDown;
+            entryDown.callback.AddListener((data) => { OnPointerDown((PointerEventData)data); });
+            trigger.triggers.Add(entryDown);
+
+            EventTrigger.Entry entryUp = new EventTrigger.Entry();
+            entryUp.eventID = EventTriggerType.PointerUp;
+            entryUp.callback.AddListener((data) => { OnPointerUp((PointerEventData)data); });
+            trigger.triggers.Add(entryUp);
         }
 
         void Update()
         {
             if (!isDragging && videoPlayer.isPlaying)
             {
-                // 현재 재생 시간을 슬라이더와 텍스트에 업데이트
-                videoSlider.value = (float)(videoPlayer.time / videoPlayer.length);
+                UpdateSliderValue();
                 UpdateTimeText();
             }
         }
 
-        //public void OnPointerDown(PointerEventData eventData)
-        //{
-        //    // 슬라이더 클릭 시작
-        //    isDragging = true;
-        //    videoSlider.value = (float)(videoPlayer.time / videoPlayer.length);
-        //}
-
-        //public void OnPointerUp(PointerEventData eventData)
-        //{
-        //    // 슬라이더 클릭 종료
-        //    isDragging = false;
-        //    // 슬라이더 값에 따라 비디오 재생 위치 설정
-        //    videoPlayer.time = videoSlider.value * videoPlayer.length;
-        //}
-
-        public void OnSliderValueChanged()
-        {
-            if (true
-                //isDragging
-                )
-            {
-                // 슬라이더 값에 따라 비디오 재생 위치 설정
-                videoPlayer.time = videoSlider.value * videoPlayer.length;
-            }
-        }
-
-        public void OnSliderDragStart()
+        public void OnPointerDown(PointerEventData eventData)
         {
             isDragging = true;
         }
 
-        public void OnSliderDragEnd()
+        public void OnPointerUp(PointerEventData eventData)
         {
             isDragging = false;
+            videoPlayer.time = videoSlider.value * videoPlayer.length;
+        }
+
+        private void OnSliderValueChanged(float value)
+        {
+            if (isDragging)
+            {
+                videoPlayer.time = value * videoPlayer.length;
+                UpdateTimeText();
+            }
         }
 
         private void OnVideoPrepared(VideoPlayer vp)
@@ -79,6 +72,12 @@ namespace VideoPlayerControlScript
             videoSlider.value = 0;
             videoSlider.maxValue = 1; // 슬라이더 값은 0~1로 정규화됨
             UpdateTimeText();
+        }
+
+        private void UpdateSliderValue()
+        {
+            // 현재 재생 시간을 슬라이더와 텍스트에 업데이트
+            videoSlider.value = (float)(videoPlayer.time / videoPlayer.length);
         }
 
         private void UpdateTimeText()
