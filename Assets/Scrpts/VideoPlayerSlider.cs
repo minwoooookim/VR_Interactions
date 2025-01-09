@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 namespace VideoPlayerControlScript
 {
-    public class VideoControlSlider : MonoBehaviour
+    public class VideoPlayerSlider : MonoBehaviour
     {
         public VideoPlayer videoPlayer;     // VideoPlayer 컴포넌트
         public Slider videoSlider;          // 재생 위치를 조절할 슬라이더
@@ -54,7 +54,8 @@ namespace VideoPlayerControlScript
         public void OnPointerUp(PointerEventData eventData)
         {
             isDragging = false;
-            videoPlayer.time = videoSlider.value * videoPlayer.length;
+            //videoPlayer.time = videoSlider.value * videoPlayer.length;
+            //UpdateTimeText();
         }
 
         private void OnSliderValueChanged(float value)
