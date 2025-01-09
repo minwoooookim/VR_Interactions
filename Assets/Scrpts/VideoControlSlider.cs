@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
+using UnityEngine.EventSystems;
 
 namespace VideoPlayerControlScript
 {
     public class VideoControlSlider : MonoBehaviour
+        //, IPointerDownHandler, IPointerUpHandler
     {
         public VideoPlayer videoPlayer; // VideoPlayer 컴포넌트
         public Slider videoSlider;     // 재생 위치를 조절할 슬라이더
@@ -20,6 +22,9 @@ namespace VideoPlayerControlScript
             // 슬라이더의 최대값을 비디오 길이에 맞게 설정
             videoPlayer.prepareCompleted += OnVideoPrepared;
             videoPlayer.Prepare();
+
+            // 슬라이더 이벤트 리스너 추가
+            videoSlider.onValueChanged.AddListener(delegate { OnSliderValueChanged(); });
         }
 
         void Update()
@@ -32,7 +37,33 @@ namespace VideoPlayerControlScript
             }
         }
 
+        //public void OnPointerDown(PointerEventData eventData)
+        //{
+        //    // 슬라이더 클릭 시작
+        //    isDragging = true;
+        //    videoSlider.value = (float)(videoPlayer.time / videoPlayer.length);
+        //}
+
+        //public void OnPointerUp(PointerEventData eventData)
+        //{
+        //    // 슬라이더 클릭 종료
+        //    isDragging = false;
+        //    // 슬라이더 값에 따라 비디오 재생 위치 설정
+        //    videoPlayer.time = videoSlider.value * videoPlayer.length;
+        //}
+
         public void OnSliderValueChanged()
+        {
+            if (true
+                //isDragging
+                )
+            {
+                // 슬라이더 값에 따라 비디오 재생 위치 설정
+                videoPlayer.time = videoSlider.value * videoPlayer.length;
+            }
+        }
+
+        public void OnSliderDragStart()
         {
             isDragging = true;
         }
@@ -40,15 +71,13 @@ namespace VideoPlayerControlScript
         public void OnSliderDragEnd()
         {
             isDragging = false;
-
-            // 슬라이더 값에 따라 비디오 재생 위치 설정
-            videoPlayer.time = videoSlider.value * videoPlayer.length;
         }
 
         private void OnVideoPrepared(VideoPlayer vp)
         {
             // 슬라이더 초기값 및 텍스트 초기화
             videoSlider.value = 0;
+            videoSlider.maxValue = 1; // 슬라이더 값은 0~1로 정규화됨
             UpdateTimeText();
         }
 
@@ -62,8 +91,7 @@ namespace VideoPlayerControlScript
             string currentTimeString = FormatTime(currentTime);
             string totalTimeString = FormatTime(totalTime);
 
-            //timeText.text = $"{currentTimeString} / {totalTimeString}";
-            timeText.text = $"{currentTimeString}";
+            timeText.text = $"{currentTimeString} / {totalTimeString}";
         }
 
         private string FormatTime(double time)
