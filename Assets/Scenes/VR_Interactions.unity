@@ -383,8 +383,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1151129357}
   - {fileID: 1972379061}
+  - {fileID: 1151129357}
   - {fileID: 1664751543}
   - {fileID: 344424746}
   m_Father: {fileID: 277881323}
@@ -3308,7 +3308,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4134505312059479865, guid: b53b4e5e34d01b341ac4e3232273f4ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.09
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: b53b4e5e34d01b341ac4e3232273f4ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3320,7 +3320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: b53b4e5e34d01b341ac4e3232273f4ae, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7671652
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: b53b4e5e34d01b341ac4e3232273f4ae, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3328,7 +3328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: b53b4e5e34d01b341ac4e3232273f4ae, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.64144963
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: b53b4e5e34d01b341ac4e3232273f4ae, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3340,7 +3340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: b53b4e5e34d01b341ac4e3232273f4ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 79.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: b53b4e5e34d01b341ac4e3232273f4ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -4899,7 +4899,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
