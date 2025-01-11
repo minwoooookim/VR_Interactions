@@ -9,10 +9,16 @@ namespace VideoPlayerControlScript
     public class VideoControls : MonoBehaviour
     {
         public VideoPlayer videoPlayer; // VideoPlayer 컴포넌트
+
         public Button playButton; // Play 버튼
         public Sprite playIcon; // 재생 아이콘
         public Sprite pauseIcon; // 일시정지 아이콘
         private Image buttonImage; // 버튼 이미지
+
+        public Slider audioSlider; // 오디오 볼륨 조절 슬라이더
+        public Slider brightnessSlider; // 화면 밝기 조절 슬라이더
+
+        private Material videoMaterial; // 비디오의 화면 밝기를 조절할 Material
 
         void Start()
         {
@@ -27,6 +33,23 @@ namespace VideoPlayerControlScript
 
             // VideoPlayer의 끝 이벤트 등록
             videoPlayer.loopPointReached += OnVideoEnd;
+
+            // 비디오의 초기 음량을 현재 오디오 슬라이더의 값으로 설정
+            videoPlayer.SetDirectAudioVolume(0, audioSlider.value);
+
+
+            // 비디오의 Material 참조 (비디오가 렌더링되는 오브젝트에 할당된 Material)
+            videoMaterial = videoPlayer.targetMaterialRenderer.material;
+
+            // 슬라이더 값에 따라 초기 비디오 밝기 설정
+            SetBrightness(brightnessSlider.value);
+
+
+            // 오디오 슬라이더 이벤트 등록
+            audioSlider.onValueChanged.AddListener(SetAudioVolume);
+
+            // 밝기 슬라이더 이벤트 등록
+            brightnessSlider.onValueChanged.AddListener(SetBrightness);
         }
 
         void TogglePlayPause()
@@ -68,6 +91,18 @@ namespace VideoPlayerControlScript
         {
             // 이벤트 등록 해제
             videoPlayer.loopPointReached -= OnVideoEnd;
+        }
+
+        void SetAudioVolume(float volume)
+        {
+            // 오디오 볼륨 설정
+            videoPlayer.SetDirectAudioVolume(0, volume);
+        }
+
+        void SetBrightness(float brightness)
+        {
+            // 화면 밝기 설정
+            videoMaterial.SetFloat("_Brightness", brightness);
         }
     }
 }
