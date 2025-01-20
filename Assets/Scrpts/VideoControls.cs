@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -18,7 +19,8 @@ namespace VideoPlayerControlScript
         public Slider audioSlider; // 오디오 볼륨 조절 슬라이더
         public Slider brightnessSlider; // 화면 밝기 조절 슬라이더
 
-        private Material videoMaterial; // 비디오의 화면 밝기를 조절할 Material
+        public Object screenDimmer; // 화면 어둡게 하는 오브젝트
+        private Material screenDimmerMaterial; // 화면 어둡게 하는 오브젝트의 Material
 
         void Start()
         {
@@ -37,13 +39,11 @@ namespace VideoPlayerControlScript
             // 비디오의 초기 음량을 현재 오디오 슬라이더의 값으로 설정
             videoPlayer.SetDirectAudioVolume(0, audioSlider.value);
 
+            // Screen Dimmer의 Material 참조
+            screenDimmerMaterial = screenDimmer.GetComponent<Renderer>().material;
 
-            // 비디오의 Material 참조 (비디오가 렌더링되는 오브젝트에 할당된 Material)
-            videoMaterial = videoPlayer.targetMaterialRenderer.material;
-
-            // 슬라이더 값에 따라 초기 비디오 밝기 설정
+            // 슬라이더 값에 따라 초기 Screen Dimmer의 alpha 값 설정
             SetBrightness(brightnessSlider.value);
-
 
             // 오디오 슬라이더 이벤트 등록
             audioSlider.onValueChanged.AddListener(SetAudioVolume);
@@ -101,8 +101,10 @@ namespace VideoPlayerControlScript
 
         void SetBrightness(float brightness)
         {
-            // 화면 밝기 설정
-            videoMaterial.SetFloat("_Brightness", brightness);
+            // Screen Dimmer의 alpha 값 설정 (brightness 값이 클수록 alpha 값이 작아지도록 반대로 설정)
+            Color color = screenDimmerMaterial.color;
+            color.a = 1.0f - brightness;
+            screenDimmerMaterial.color = color;
         }
     }
 }
