@@ -21,6 +21,8 @@ namespace VideoPlayerControlScript
         public GameObject handleDisplay;           // 핸들 클릭 시 나타날 오브젝트
         public TextMeshProUGUI handleDisplayText;  // 핸들 위에 표시될 시간 텍스트
 
+        private bool isDragging = false;
+
         void Start()
         {
             // 동영상 준비가 완료되면 슬라이더 설정
@@ -37,42 +39,37 @@ namespace VideoPlayerControlScript
 
         void Update()
         {
-            UpdateSliderValue();
-            UpdateTimeText(videoSlider.value);
+            // 드래그 중이 아니라면 슬라이더 자동 업데이트
+            if (!isDragging)
+            {
+                UpdateSliderValue();
+                UpdateTimeText(videoSlider.value);
+            }
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            isDragging = true;
             if (handleDisplay != null)
                 handleDisplay.SetActive(true);
-
             UpdateDisplayText(videoSlider.value);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            isDragging = false;
             if (handleDisplay != null)
                 handleDisplay.SetActive(false);
         }
 
-        /// <summary>
-        /// 슬라이더 값이 변경될 때마다 호출 (드래그 중에도 호출)
-        /// </summary>
         public void OnDrag(PointerEventData eventData)
         {
-            // 슬라이더 값을 비디오 재생 시간에 반영 (0~1 사이)
+            // 사용자가 슬라이더를 드래그하는 동안의 처리
             videoPlayer.time = videoSlider.value * videoPlayer.length;
-
-            // 메인 타임 텍스트 갱신
             UpdateTimeText(videoSlider.value);
-
-            // 핸들 디스플레이 텍스트 갱신
             UpdateDisplayText(videoSlider.value);
         }
 
-        /// <summary>
-        /// 비디오가 준비되면 슬라이더 세팅
-        /// </summary>
         private void OnVideoPrepared(VideoPlayer vp)
         {
             videoSlider.value = 0;
@@ -80,9 +77,6 @@ namespace VideoPlayerControlScript
             UpdateTimeText(videoSlider.value);
         }
 
-        /// <summary>
-        /// 재생 중인 비디오 시간에 맞춰 슬라이더 값을 업데이트
-        /// </summary>
         private void UpdateSliderValue()
         {
             if (videoPlayer.length > 0)
@@ -95,9 +89,6 @@ namespace VideoPlayerControlScript
             }
         }
 
-        /// <summary>
-        /// 메인 타임 텍스트 (00:00 / 00:00) 업데이트
-        /// </summary>
         private void UpdateTimeText(float sliderValue)
         {
             if (timeText == null) return;
@@ -111,9 +102,6 @@ namespace VideoPlayerControlScript
             timeText.text = $"{currentTimeString} / {totalTimeString}";
         }
 
-        /// <summary>
-        /// 핸들 디스플레이 텍스트 갱신
-        /// </summary>
         private void UpdateDisplayText(float sliderValue)
         {
             if (handleDisplay != null && handleDisplay.activeSelf && handleDisplayText != null)
@@ -123,9 +111,6 @@ namespace VideoPlayerControlScript
             }
         }
 
-        /// <summary>
-        /// 초 단위의 시간을 mm:ss 형식으로 변환
-        /// </summary>
         private string FormatTime(double time)
         {
             int minutes = Mathf.FloorToInt((float)time / 60f);

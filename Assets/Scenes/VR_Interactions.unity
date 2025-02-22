@@ -5000,7 +5000,6 @@ GameObject:
   - component: {fileID: 692802562}
   - component: {fileID: 692802561}
   - component: {fileID: 692802560}
-  - component: {fileID: 692802565}
   m_Layer: 5
   m_Name: Video Player Slider
   m_TagString: Untagged
@@ -5091,23 +5090,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &692802565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692802557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca95ef1638ea8db4483769b2b423191a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 1084251879}
-  videoSlider: {fileID: 2111614378}
-  timeText: {fileID: 1972379062}
-  handleDisplay: {fileID: 219088647}
-  handleDisplayText: {fileID: 2103278782}
 --- !u!1001 &695228464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14156,6 +14138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2111614377}
   - component: {fileID: 2111614378}
+  - component: {fileID: 2111614379}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -14236,6 +14219,23 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2111614379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111614376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca95ef1638ea8db4483769b2b423191a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 1084251879}
+  videoSlider: {fileID: 2111614378}
+  timeText: {fileID: 1972379062}
+  handleDisplay: {fileID: 219088647}
+  handleDisplayText: {fileID: 2103278782}
 --- !u!54 &2128982541
 Rigidbody:
   m_ObjectHideFlags: 0
