@@ -710,7 +710,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0.38, y: 0.99}
-  m_SizeDelta: {x: 20.43, y: 15.13}
+  m_SizeDelta: {x: 20.43, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &76155738
 MonoBehaviour:
@@ -4862,6 +4862,8 @@ MonoBehaviour:
   videoPlayer: {fileID: 1084251879}
   videoSlider: {fileID: 2111614378}
   timeText: {fileID: 1972379062}
+  handleDisplay: {fileID: 0}
+  handleDisplayText: {fileID: 0}
 --- !u!1001 &695228464
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,96 +8,128 @@ using UnityEngine.EventSystems;
 
 namespace VideoPlayerControlScript
 {
-    public class VideoPlayerSlider : MonoBehaviour
+    public class VideoPlayerSlider : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
+        [Header("Video Components")]
         public VideoPlayer videoPlayer;     // VideoPlayer 컴포넌트
         public Slider videoSlider;          // 재생 위치를 조절할 슬라이더
-        public TextMeshProUGUI timeText;    // 현재 재생 시간을 표시할 텍스트
 
-        private bool isDragging = false;
+        [Header("Time Text UI")]
+        public TextMeshProUGUI timeText;    // 메인 타임 표시 UI (00:00 / 00:00 등)
+
+        [Header("Handle Display UI")]
+        public GameObject handleDisplay;           // 핸들 클릭 시 나타날 오브젝트
+        public TextMeshProUGUI handleDisplayText;  // 핸들 위에 표시될 시간 텍스트
 
         void Start()
         {
-            // 슬라이더의 최대값을 비디오 길이에 맞게 설정
+            // 동영상 준비가 완료되면 슬라이더 설정
             videoPlayer.prepareCompleted += OnVideoPrepared;
             videoPlayer.Prepare();
-            videoSlider.onValueChanged.AddListener(OnSliderValueChanged);
 
-            // EventTrigger를 사용하여 슬라이더의 클릭 이벤트 처리
-            EventTrigger trigger = videoSlider.gameObject.AddComponent<EventTrigger>();
+            // 시작 시 핸들 디스플레이 비활성화
+            if (handleDisplay != null)
+                handleDisplay.SetActive(false);
 
-            EventTrigger.Entry entryDown = new EventTrigger.Entry();
-            entryDown.eventID = EventTriggerType.PointerDown;
-            entryDown.callback.AddListener((data) => { OnPointerDown((PointerEventData)data); });
-            trigger.triggers.Add(entryDown);
-
-            EventTrigger.Entry entryUp = new EventTrigger.Entry();
-            entryUp.eventID = EventTriggerType.PointerUp;
-            entryUp.callback.AddListener((data) => { OnPointerUp((PointerEventData)data); });
-            trigger.triggers.Add(entryUp);
+            // 초기 텍스트 업데이트
+            UpdateTimeText(videoSlider.value);
         }
 
         void Update()
         {
-            if (!isDragging && videoPlayer.isPlaying)
-            {
-                UpdateSliderValue();
-                UpdateTimeText();
-            }
+            UpdateSliderValue();
+            UpdateTimeText(videoSlider.value);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            isDragging = true;
+            if (handleDisplay != null)
+                handleDisplay.SetActive(true);
+
+            UpdateDisplayText(videoSlider.value);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            isDragging = false;
-            //videoPlayer.time = videoSlider.value * videoPlayer.length;
-            //UpdateTimeText();
+            if (handleDisplay != null)
+                handleDisplay.SetActive(false);
         }
 
-        private void OnSliderValueChanged(float value)
+        /// <summary>
+        /// 슬라이더 값이 변경될 때마다 호출 (드래그 중에도 호출)
+        /// </summary>
+        public void OnDrag(PointerEventData eventData)
         {
-            if (isDragging)
+            // 슬라이더 값을 비디오 재생 시간에 반영 (0~1 사이)
+            videoPlayer.time = videoSlider.value * videoPlayer.length;
+
+            // 메인 타임 텍스트 갱신
+            UpdateTimeText(videoSlider.value);
+
+            // 핸들 디스플레이 텍스트 갱신
+            UpdateDisplayText(videoSlider.value);
+        }
+
+        /// <summary>
+        /// 비디오가 준비되면 슬라이더 세팅
+        /// </summary>
+        private void OnVideoPrepared(VideoPlayer vp)
+        {
+            videoSlider.value = 0;
+            videoSlider.maxValue = 1; // 0~1 정규화
+            UpdateTimeText(videoSlider.value);
+        }
+
+        /// <summary>
+        /// 재생 중인 비디오 시간에 맞춰 슬라이더 값을 업데이트
+        /// </summary>
+        private void UpdateSliderValue()
+        {
+            if (videoPlayer.length > 0)
             {
-                videoPlayer.time = value * videoPlayer.length;
-                UpdateTimeText();
+                videoSlider.value = (float)(videoPlayer.time / videoPlayer.length);
+            }
+            else
+            {
+                videoSlider.value = 0;
             }
         }
 
-        private void OnVideoPrepared(VideoPlayer vp)
+        /// <summary>
+        /// 메인 타임 텍스트 (00:00 / 00:00) 업데이트
+        /// </summary>
+        private void UpdateTimeText(float sliderValue)
         {
-            // 슬라이더 초기값 및 텍스트 초기화
-            videoSlider.value = 0;
-            videoSlider.maxValue = 1; // 슬라이더 값은 0~1로 정규화됨
-            UpdateTimeText();
-        }
+            if (timeText == null) return;
 
-        private void UpdateSliderValue()
-        {
-            // 현재 재생 시간을 슬라이더와 텍스트에 업데이트
-            videoSlider.value = (float)(videoPlayer.time / videoPlayer.length);
-        }
-
-        private void UpdateTimeText()
-        {
-            // 현재 재생 시간 및 총 시간 계산
-            double currentTime = videoPlayer.time;
+            double currentTime = sliderValue * videoPlayer.length;
             double totalTime = videoPlayer.length;
 
-            // 텍스트 형식: "현재시간 / 총시간 (분:초)"
             string currentTimeString = FormatTime(currentTime);
             string totalTimeString = FormatTime(totalTime);
 
             timeText.text = $"{currentTimeString} / {totalTimeString}";
         }
 
+        /// <summary>
+        /// 핸들 디스플레이 텍스트 갱신
+        /// </summary>
+        private void UpdateDisplayText(float sliderValue)
+        {
+            if (handleDisplay != null && handleDisplay.activeSelf && handleDisplayText != null)
+            {
+                double currentTime = sliderValue * videoPlayer.length;
+                handleDisplayText.text = FormatTime(currentTime);
+            }
+        }
+
+        /// <summary>
+        /// 초 단위의 시간을 mm:ss 형식으로 변환
+        /// </summary>
         private string FormatTime(double time)
         {
-            int minutes = Mathf.FloorToInt((float)time / 60);
-            int seconds = Mathf.FloorToInt((float)time % 60);
+            int minutes = Mathf.FloorToInt((float)time / 60f);
+            int seconds = Mathf.FloorToInt((float)time % 60f);
             return $"{minutes:D2}:{seconds:D2}";
         }
     }
