@@ -17,6 +17,19 @@ public class ToggleKeyboardButton : MonoBehaviour
     // WristKeyboard 현재 표시 상태
     private bool isWristKeyboardActive = false;
 
+    // ================================
+    //  버튼 색상 전환을 위한 필드 추가
+    // ================================
+    [Header("Button Color Settings")]
+    [Tooltip("버튼의 MeshRenderer 또는 SpriteRenderer(2D UI) 등을 할당")]
+    [SerializeField] private Renderer buttonRenderer;
+
+    [Tooltip("WristKeyboard가 꺼져있을 때(기본) 버튼 색상")]
+    [SerializeField] private Color colorKeyboardOff = Color.gray;
+
+    [Tooltip("WristKeyboard가 켜져있을 때 버튼 색상")]
+    [SerializeField] private Color colorKeyboardOn = Color.green;
+
     private void Awake()
     {
         // PokeInteractable이 할당되었는지 확인 후 이벤트 등록
@@ -29,6 +42,9 @@ public class ToggleKeyboardButton : MonoBehaviour
         {
             Debug.LogWarning("PokeInteractable이 할당되지 않았습니다.", this);
         }
+
+        // 씬 시작 시 초기 색상 설정
+        UpdateButtonColor();
     }
 
     private void OnDestroy()
@@ -69,5 +85,19 @@ public class ToggleKeyboardButton : MonoBehaviour
         bool shouldEnableRays = !isWristKeyboardActive;
         leftRayCaster.SetActive(shouldEnableRays);
         rightRayCaster.SetActive(shouldEnableRays);
+
+        // 버튼 색상 업데이트
+        UpdateButtonColor();
+    }
+
+    /// <summary>
+    /// 버튼 색상을 현재 키보드 상태에 맞춰 변경
+    /// </summary>
+    private void UpdateButtonColor()
+    {
+        if (buttonRenderer == null) return;
+
+        // WristKeyboard가 활성 상태일 때는 colorKeyboardOn, 아닐 때는 colorKeyboardOff
+        buttonRenderer.material.color = isWristKeyboardActive ? colorKeyboardOn : colorKeyboardOff;
     }
 }
