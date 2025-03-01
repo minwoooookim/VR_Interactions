@@ -8319,22 +8319,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3720709107180503009, guid: 5011220382e781446916caefe91105f0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3720709107180503009, guid: 5011220382e781446916caefe91105f0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3720709107180503009, guid: 5011220382e781446916caefe91105f0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3720709107180503009, guid: 5011220382e781446916caefe91105f0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4507225171611880959, guid: 5011220382e781446916caefe91105f0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8746,10 +8730,6 @@ PrefabInstance:
     - target: {fileID: 9127398362076192122, guid: 5011220382e781446916caefe91105f0, type: 3}
       propertyPath: m_Name
       value: QWERY Keyboard
-      objectReference: {fileID: 0}
-    - target: {fileID: 9127398362076192122, guid: 5011220382e781446916caefe91105f0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9214039504623832600, guid: 5011220382e781446916caefe91105f0, type: 3}
       propertyPath: m_AnchorMax.y

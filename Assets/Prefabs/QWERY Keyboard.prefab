@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3611613327258024425}
   - component: {fileID: 3526540193801550880}
   - component: {fileID: 8881629827143812469}
-  - component: {fileID: 8025770737802522246}
+  - component: {fileID: 7660250005206649649}
   m_Layer: 5
   m_Name: SpaceButton
   m_TagString: Untagged
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 20
---- !u!114 &8025770737802522246
+--- !u!114 &7660250005206649649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,41 +86,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 366201036410478478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 8881629827143812469}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2425092235378720050}
+          m_TargetAssemblyTypeName: QWERTY_Keyboard.KeyboardManager, Assembly-CSharp
+          m_MethodName: SpaceOnPointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2425092235378720050}
+          m_TargetAssemblyTypeName: QWERTY_Keyboard.KeyboardManager, Assembly-CSharp
+          m_MethodName: SpaceOnPointerUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1304159634331987727
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: -9
+    m_Left: -3
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
@@ -811,14 +812,14 @@ GameObject:
   - component: {fileID: 3720709107180503009}
   - component: {fileID: 1875859158840984010}
   - component: {fileID: 8974931628586845764}
-  - component: {fileID: 871605694504566682}
+  - component: {fileID: 2532941485349733931}
   m_Layer: 5
   m_Name: ShiftButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3720709107180503009
 RectTransform:
   m_ObjectHideFlags: 0
@@ -834,9 +835,9 @@ RectTransform:
   - {fileID: 7209941093712798221}
   m_Father: {fileID: 2715305744889582661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 7.1499996, y: -1.5}
   m_SizeDelta: {x: 7, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1875859158840984010
@@ -877,7 +878,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 20
---- !u!114 &871605694504566682
+--- !u!114 &2532941485349733931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -886,41 +887,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 6102690969115926901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 8974931628586845764}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2425092235378720050}
+          m_TargetAssemblyTypeName: QWERTY_Keyboard.KeyboardManager, Assembly-CSharp
+          m_MethodName: Shifted
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6289138654875260367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,7 +990,7 @@ GameObject:
   - component: {fileID: 6313801398290212256}
   - component: {fileID: 5916831715732365714}
   - component: {fileID: 7874783083746983826}
-  - component: {fileID: 3579820993204343084}
+  - component: {fileID: 5066115576212544296}
   m_Layer: 5
   m_Name: DeleteButton
   m_TagString: Untagged
@@ -1070,7 +1056,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 20
---- !u!114 &3579820993204343084
+--- !u!114 &5066115576212544296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1079,41 +1065,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 6683111741901862862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 7874783083746983826}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2425092235378720050}
+          m_TargetAssemblyTypeName: QWERTY_Keyboard.KeyboardManager, Assembly-CSharp
+          m_MethodName: DeleteOnPointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2425092235378720050}
+          m_TargetAssemblyTypeName: QWERTY_Keyboard.KeyboardManager, Assembly-CSharp
+          m_MethodName: DeleteOnPointerUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8108843681251146923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,7 +1246,7 @@ RectTransform:
   - {fileID: 8580486963877047504}
   - {fileID: 8431871952495157015}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 41.1, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 41.1, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -3.3651655, y: 0.022240639}
@@ -1340,10 +1327,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414f1b488a86e454e80e228e8f029b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shiftButton: {fileID: 871605694504566682}
-  deleteButton: {fileID: 3579820993204343084}
-  spaceButton: {fileID: 8025770737802522246}
+  deleteButton: {fileID: 6683111741901862862}
+  spaceButton: {fileID: 366201036410478478}
   inputField: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  isShifted: 0
 --- !u!114 &6876662777943225284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1712,7 +1701,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1826,7 +1816,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1940,7 +1931,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2054,7 +2046,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2168,7 +2161,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2282,7 +2276,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2396,7 +2391,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2510,7 +2506,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2620,7 +2617,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2734,7 +2732,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2848,7 +2847,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2962,7 +2962,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3076,7 +3077,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3190,7 +3192,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3304,7 +3307,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3418,7 +3422,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3532,7 +3537,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3646,7 +3652,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3760,7 +3767,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3874,7 +3882,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3988,7 +3997,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4102,7 +4112,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4216,7 +4227,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4330,7 +4342,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4444,7 +4457,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4558,7 +4572,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4672,7 +4687,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4786,7 +4802,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4900,7 +4917,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5014,7 +5032,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5128,7 +5147,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5242,7 +5262,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5356,7 +5377,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5470,7 +5492,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5584,7 +5607,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5698,7 +5722,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyboard Key (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140145352278618255, guid: 199228cb4604a5b4b99f08a7b5f62572, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

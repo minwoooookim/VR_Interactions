@@ -7,54 +7,75 @@ using TMPro;
 
 namespace QWERTY_Keyboard
 {
-    public class KeyboardManager : MonoBehaviour
+    public class KeyboardManager : MonoBehaviour 
     {
         public static KeyboardManager instance;
-        public Button shiftButton;
-        public Button deleteButton;
-        public Button spaceButton;
-        private Image shiftButtonImage;
+        //public GameObject shiftButton; //Shift 기능은 실험에 필요하지 않으므로 구현중 지움
+        public GameObject deleteButton;
+        public GameObject spaceButton;
+        //private Image shiftButtonImage;
+        private Image deleteButtonImage;
+        private Image spaceButtonImage;
 
         public TMP_InputField inputField;
 
-        private bool isShifted = false;
+        [Header("Colors")]
+        public Color normalColor = Color.white;
+        public Color pressedColor = Color.gray;
+
+        public bool isShifted = false;
         private void Awake()
         {
             if (instance == null)
             {
                 instance = this;
             }
-            shiftButton.onClick.AddListener(Shifted);
-            shiftButtonImage = shiftButton.gameObject.GetComponent<Image>();
-            deleteButton.onClick.AddListener(Delete);
-            spaceButton.onClick.AddListener(Space);
+            //shiftButtonImage = shiftButton.gameObject.GetComponent<Image>();
+            deleteButtonImage = deleteButton.gameObject.GetComponent<Image>();
+            spaceButtonImage = spaceButton.gameObject.GetComponent<Image>();
         }
 
-        private void Shifted()
-        {
-            isShifted = !isShifted;
+        //public void Shifted()
+        //{
+        //    isShifted = !isShifted;
 
-            if (isShifted)
-            {
-                shiftButtonImage.color = Color.yellow;
-            }
-            else
-            {
-                shiftButtonImage.color = Color.white;
-            }
-        }
+        //    if (isShifted)
+        //    {
+        //        shiftButtonImage.color = Color.yellow;
+        //    }
+        //    else
+        //    {
+        //        shiftButtonImage.color = Color.white;
+        //    }
+        //}
 
-        private void Delete()
+
+        /// <summary>
+        /// 아래 코드는 각 버튼의 Event Trigger에 연결되어야 함
+        /// </summary>
+        public void DeleteOnPointerDown()
         {
             if (inputField.text.Length > 0)
             {
                 inputField.text = inputField.text.Substring(0, inputField.text.Length - 1);
             }
+            deleteButtonImage.color = pressedColor;
         }
 
-        private void Space()
+        public void DeleteOnPointerUp()
+        {
+            deleteButtonImage.color = normalColor;
+        }
+
+        public void SpaceOnPointerDown()
         {
             inputField.text += " ";
+            spaceButtonImage.color = pressedColor;
+        }
+
+        public void SpaceOnPointerUp()
+        {
+            spaceButtonImage.color = normalColor;
         }
     }
 }
