@@ -11,7 +11,7 @@ namespace VideoPlayerControlScript
     {
         public VideoPlayer videoPlayer; // VideoPlayer 컴포넌트
 
-        public Button playButton; // Play 버튼
+        public GameObject playButton; // Play 버튼
         public Sprite playIcon; // 재생 아이콘
         public Sprite pauseIcon; // 일시정지 아이콘
         private Image buttonImage; // 버튼 이미지
@@ -26,9 +26,6 @@ namespace VideoPlayerControlScript
         {
             // 버튼의 이미지 컴포넌트 참조
             buttonImage = playButton.GetComponent<Image>();
-
-            // 버튼에 클릭 이벤트 등록
-            playButton.onClick.AddListener(TogglePlayPause);
 
             // 초기 상태 설정
             UpdateButtonIcon();
@@ -52,7 +49,7 @@ namespace VideoPlayerControlScript
             brightnessSlider.onValueChanged.AddListener(SetBrightness);
         }
 
-        void TogglePlayPause()
+        public void TogglePlayPause()
         {
             // 영상 재생 상태 토글
             if (videoPlayer.isPlaying)

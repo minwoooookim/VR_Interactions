@@ -437,6 +437,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86696389}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &105175176 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4827751413930298924, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+  m_PrefabInstance: {fileID: 1507102563049472558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6493be6dfdaa0c74fa714bdfc0bb1565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &107393109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.014
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1815,7 +1826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.982
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3291,6 +3302,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003473837}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1003647330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 629228121377643540, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+  m_PrefabInstance: {fileID: 1507102563049472558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1003647335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003647330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 105175176}
+          m_TargetAssemblyTypeName: VideoPlayerControlScript.VideoControls, Assembly-CSharp
+          m_MethodName: TogglePlayPause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1014964705
 GameObject:
   m_ObjectHideFlags: 0
@@ -3702,6 +3747,40 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1809968159960863475, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
+--- !u!1 &1145520695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 629228121377643540, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+  m_PrefabInstance: {fileID: 2107305859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1145520700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145520695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1770705883}
+          m_TargetAssemblyTypeName: VideoPlayerControlScript.VideoControls, Assembly-CSharp
+          m_MethodName: TogglePlayPause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1147799297
 GameObject:
   m_ObjectHideFlags: 0
@@ -5912,6 +5991,17 @@ Transform:
   - {fileID: 1244738938}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1770705883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4827751413930298924, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+  m_PrefabInstance: {fileID: 2107305859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6493be6dfdaa0c74fa714bdfc0bb1565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1798947289
 GameObject:
   m_ObjectHideFlags: 0
@@ -7128,6 +7218,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1953384924736471631, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2802108761566622328, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
       propertyPath: m_Name
       value: Video Canvas (1)
@@ -7140,6 +7234,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: f42b275fce3658e4cab7b41b051a9dea, type: 2}
+    - target: {fileID: 4827751413930298924, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+      propertyPath: playButton
+      value: 
+      objectReference: {fileID: 1145520695}
     - target: {fileID: 5427026061647129855, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7260,10 +7358,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1953384924736471631, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 629228121377643540, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1145520700}
   m_SourcePrefab: {fileID: 100100000, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
 --- !u!1001 &2108252105
 PrefabInstance:
@@ -7506,10 +7608,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1953384924736471631, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2802108761566622328, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
       propertyPath: m_Name
       value: Video Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4827751413930298924, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+      propertyPath: playButton
+      value: 
+      objectReference: {fileID: 1003647330}
     - target: {fileID: 5427026061647129855, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7618,10 +7728,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1953384924736471631, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 629228121377643540, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1003647335}
   m_SourcePrefab: {fileID: 100100000, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
 --- !u!114 &1596520077099536428
 MonoBehaviour:
