@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.Video;
+using Oculus.Interaction;
 
 public enum HandleMode
 {
@@ -15,6 +16,7 @@ public class HandleDisplayController : MonoBehaviour, IPointerDownHandler, IPoin
     [Header("슬라이더 관련")]
     [SerializeField] private Slider targetSlider;           // 연결된 슬라이더
     [SerializeField] private HandleMode handleMode = HandleMode.Brightness; // 모드 선택
+   
 
     [Header("UI 표시 관련")]
     [SerializeField] private GameObject handleDisplay;        // 클릭/드래그 중 표시할 오브젝트
@@ -35,6 +37,8 @@ public class HandleDisplayController : MonoBehaviour, IPointerDownHandler, IPoin
             handleDisplay.SetActive(true);
 
         UpdateDisplayText(targetSlider.value);
+        GrabbableKnob.instance._currentValue = targetSlider.value;
+        GrabbableKnob.instance.UpdateRotationFromValue();
     }
 
     public void OnPointerUp(PointerEventData eventData)

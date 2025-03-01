@@ -14,6 +14,7 @@ permissions and limitations under the License.
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Oculus.Interaction
 {
@@ -60,6 +61,9 @@ namespace Oculus.Interaction
 
         // [CHANGED] 0~1 사이의 슬라이더로 노브의 회전 정도를 표시하며, 외부에서 참조할 수 있도록 public getter 제공
         [Header("Knob Settings")]
+
+        [SerializeField] private Slider targetSlider;
+
         [Range(0f, 1f)]
         [SerializeField]
         private float _currentValue = 0.0f; // Inspector에서 설정한 초기 값
@@ -67,12 +71,6 @@ namespace Oculus.Interaction
         // [CHANGED] 회전 민감도(Twist Sensitivity)를 조절하기 위한 변수
         [SerializeField]
         private float _twistSensitivity = 1.0f;
-
-        // [CHANGED] 외부에서 읽을 수 있도록 프로퍼티로 제공
-        public float CurrentValue
-        {
-            get { return _currentValue; }
-        }
 
         // [CHANGED] Inspector에서 설정한 초기 값에 따른 회전 적용을 위한 기본 상태 변수
         private Quaternion _baseRotation;
@@ -88,6 +86,12 @@ namespace Oculus.Interaction
 
             // [CHANGED] Awake에서 슬라이더 값(_currentValue)에 따라 오브젝트의 회전과 위치를 업데이트하여 초기 value 반영
             UpdateRotationFromValue();
+
+            // [ADDED] 슬라이더가 할당되어 있다면 초기 _currentValue를 반영하여 슬라이더의 value 업데이트
+            if (targetSlider != null)
+            {
+                targetSlider.value = _currentValue;
+            }
         }
 
         // [CHANGED] Inspector에서 변경한 슬라이더 값에 따라 오브젝트의 회전과 위치를 업데이트하는 메서드
@@ -181,6 +185,12 @@ namespace Oculus.Interaction
             else
             {
                 _currentValue = Mathf.InverseLerp(minAngleConstraint, maxAngleConstraint, _constrainedRelativeAngle);
+            }
+
+            // [ADDED] 슬라이더가 할당되어 있다면 업데이트된 _currentValue를 반영하여 슬라이더의 value 업데이트
+            if (targetSlider != null)
+            {
+                targetSlider.value = _currentValue;
             }
 
             _previousGrabPose = grabPoint;
