@@ -12,7 +12,9 @@ namespace Oculus.Interaction
         [SerializeField] private float _twistSensitivity = 1.0f;
         [SerializeField] private Vector3 referencePoint;
         [SerializeField] private OneGrabRotateConstraints _constraints;
-        [Serializable] public class OneGrabRotateConstraints
+
+        [Serializable]
+        public class OneGrabRotateConstraints
         {
             public FloatConstraint MinAngle;
             public FloatConstraint MaxAngle;
@@ -38,6 +40,17 @@ namespace Oculus.Interaction
         [SerializeField] private Slider thisSlider;
         [SerializeField] private GameObject handleDisplay;
         [SerializeField] private HandleDisplaySelector handleDisplaySelector;
+
+        // [변경] 부모 오브젝트의 VideoPlayerControls를 담아둘 변수 추가
+        private VideoPlayerControls _videoPlayerControls;
+
+        private void Awake()
+        {
+            _grabbable = null;
+
+            // 자식에서 부모를 탐색해 VideoPlayerControls 컴포넌트를 가져온다.
+            _videoPlayerControls = GetComponentInParent<VideoPlayerControls>();
+        }
 
         public void SetKnobValue(float value)
         {
@@ -79,10 +92,12 @@ namespace Oculus.Interaction
             );
             _previousGrabPose = grabPoint;
 
-            if (isVideoKnob)
+  
+            if (isVideoKnob && _videoPlayerControls != null)
             {
-                VideoPlayerControls.instance.isDragging = true;
+                _videoPlayerControls.isDragging = true;
             }
+
             handleDisplay.SetActive(true);
             thisSlider.value = _currentValue;
             handleDisplaySelector.UpdateDisplayText(thisSlider.value);
@@ -99,7 +114,7 @@ namespace Oculus.Interaction
             var targetPose = grabPoint.GetTransformedBy(_initialPose);
             var previousPose = _previousGrabPose.GetTransformedBy(_initialPose);
 
-            // [CHANGED] 회전 민감도(TwistSensitivity)를 적용하기 위해 rawAngleDelta를 구분
+            // 회전 민감도(TwistSensitivity)를 적용하기 위해 rawAngleDelta를 구분
             var rawAngleDelta = Vector3.SignedAngle(targetPose.up, previousPose.up, _initialPose.forward);
             var angleDelta = rawAngleDelta * _twistSensitivity; // 민감도 적용
 
@@ -124,7 +139,7 @@ namespace Oculus.Interaction
             // 회전 적용
             targetTransform.RotateAround(pivot.position, rotationAxis, angleDelta);
 
-            // [CHANGED] 0~1 슬라이더 값(_currentValue)을 업데이트
+            // 0~1 슬라이더 값(_currentValue)을 업데이트
             float minAngleConstraint = _constraints.MinAngle.Constrain ? _constraints.MinAngle.Value : 0f;
             float maxAngleConstraint = _constraints.MaxAngle.Constrain ? _constraints.MaxAngle.Value : 360f;
 
@@ -156,9 +171,10 @@ namespace Oculus.Interaction
             }
 
             handleDisplay.SetActive(false);
-            if (isVideoKnob)
+
+            if (isVideoKnob && _videoPlayerControls != null)
             {
-                VideoPlayerControls.instance.isDragging = false;
+                _videoPlayerControls.isDragging = false;
             }
         }
 

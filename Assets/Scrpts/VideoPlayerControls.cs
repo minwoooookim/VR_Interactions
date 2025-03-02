@@ -11,8 +11,6 @@ namespace VideoPlayerControlScript
 {
     public class VideoPlayerControls : MonoBehaviour
     {
-        public static VideoPlayerControls instance;
-
         public VideoPlayer videoPlayer; // VideoPlayer 컴포넌트
         public TextMeshProUGUI timeText;    // 메인 타임 표시 UI (00:00 / 00:00 등)
         public GrabbableKnob targetKnob; // 조절할 노브
@@ -32,18 +30,6 @@ namespace VideoPlayerControlScript
         private Material screenDimmerMaterial; // 화면 어둡게 하는 오브젝트의 Material
 
         public bool isDragging = false;
-
-        void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
 
         void Start()
         {
