@@ -8,6 +8,7 @@ namespace Oculus.Interaction
     public class GrabbableKnob : MonoBehaviour, ITransformer
     {
         [SerializeField, Optional] private Transform _pivotTransform = null;
+        [SerializeField] private float _twistSensitivity = 1.0f;
         [SerializeField] private Vector3 referencePoint;
         [SerializeField] private OneGrabRotateConstraints _constraints;
         [Serializable] public class OneGrabRotateConstraints
@@ -32,10 +33,8 @@ namespace Oculus.Interaction
         private Pose _previousGrabPose;
 
         [SerializeField] private Slider targetSlider;
-
-        // [CHANGED] 회전 민감도(Twist Sensitivity)를 조절하기 위한 변수
-        [SerializeField]
-        private float _twistSensitivity = 1.0f;
+        [SerializeField] private GameObject handleDisplay;
+        [SerializeField] private HandleDisplaySelector handleDisplaySelector;
 
         public void SetKnobValue(float value)
         {
@@ -76,6 +75,10 @@ namespace Oculus.Interaction
                 Quaternion.LookRotation(pivot.position - grabPoint.position, rotationAxis)
             );
             _previousGrabPose = grabPoint;
+
+            targetSlider.value = _currentValue;
+            handleDisplay.SetActive(true);
+            handleDisplaySelector.UpdateDisplayText(targetSlider.value);
         }
 
         public void UpdateTransform()
@@ -127,13 +130,10 @@ namespace Oculus.Interaction
                 _currentValue = Mathf.InverseLerp(minAngleConstraint, maxAngleConstraint, _constrainedRelativeAngle);
             }
 
-            // [ADDED] 슬라이더가 할당되어 있다면 업데이트된 _currentValue를 반영하여 슬라이더의 value 업데이트
-            if (targetSlider != null)
-            {
-                targetSlider.value = _currentValue;
-            }
-
             _previousGrabPose = grabPoint;
+
+            targetSlider.value = _currentValue;
+            handleDisplaySelector.UpdateDisplayText(targetSlider.value);
         }
 
         public void EndTransform()
@@ -147,6 +147,8 @@ namespace Oculus.Interaction
             {
                 _relativeAngle = Mathf.Min(_constrainedRelativeAngle, _constraints.MaxAngle.Value);
             }
+
+            handleDisplay.SetActive(false);
         }
 
         #region Inject

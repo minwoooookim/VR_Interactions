@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,20 +8,23 @@ using UnityEngine.Video;
 
 namespace VideoPlayerControlScript
 {
-    public class VideoControls : MonoBehaviour
+    public class VideoPlayerControls : MonoBehaviour
     {
         public VideoPlayer videoPlayer; // VideoPlayer 컴포넌트
 
+        [Header("Play Button")]
         public GameObject playButton; // Play 버튼
         public Sprite playIcon; // 재생 아이콘
         public Sprite pauseIcon; // 일시정지 아이콘
         private Image buttonImage; // 버튼 이미지
 
+        [Header("Sliders")]
         public Slider audioSlider; // 오디오 볼륨 조절 슬라이더
         public Slider brightnessSlider; // 화면 밝기 조절 슬라이더
 
         public Object screenDimmer; // 화면 어둡게 하는 오브젝트
         private Material screenDimmerMaterial; // 화면 어둡게 하는 오브젝트의 Material
+
 
         void Start()
         {

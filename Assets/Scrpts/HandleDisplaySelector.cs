@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.Video;
+using System.Runtime.InteropServices;
 
 public enum HandleMode
 {
@@ -10,7 +12,8 @@ public enum HandleMode
 
 public class HandleDisplaySelector : MonoBehaviour
 {
-    [SerializeField] private HandleMode handleMode = HandleMode.Brightness;
+    [SerializeField] private HandleMode handleMode = HandleMode.Audio;
+    [SerializeField] private VideoPlayer videoPlayer = null;
     [SerializeField] private TextMeshProUGUI displayText;
 
     public void UpdateDisplayText(float sliderValue)
@@ -29,6 +32,18 @@ public class HandleDisplaySelector : MonoBehaviour
                     displayText.text = audioValue.ToString();
                 break;
 
+            case HandleMode.Video:
+                double currentTime = sliderValue * videoPlayer.length;
+                if (displayText != null)
+                    displayText.text = FormatTime(currentTime);
+                break;
         }
+    }
+
+    private string FormatTime(double time)
+    {
+        int minutes = Mathf.FloorToInt((float)time / 60f);
+        int seconds = Mathf.FloorToInt((float)time % 60f);
+        return $"{minutes:D2}:{seconds:D2}";
     }
 }

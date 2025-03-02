@@ -13,8 +13,6 @@ public class SliderEventTrigger : MonoBehaviour, IPointerDownHandler, IPointerUp
     private void Start()
     {
         handleDisplay.SetActive(false);
-
-        // 초기 텍스트 업데이트
         handleDisplaySelector.UpdateDisplayText(targetSlider.value);
     }
 
