@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using VideoPlayerControlScript;
 
 namespace Oculus.Interaction
 {
@@ -32,7 +33,9 @@ namespace Oculus.Interaction
         private Pose _initialPose;
         private Pose _previousGrabPose;
 
-        [SerializeField] private Slider targetSlider;
+        public bool isVideoKnob = false;
+
+        [SerializeField] private Slider thisSlider;
         [SerializeField] private GameObject handleDisplay;
         [SerializeField] private HandleDisplaySelector handleDisplaySelector;
 
@@ -76,9 +79,13 @@ namespace Oculus.Interaction
             );
             _previousGrabPose = grabPoint;
 
-            targetSlider.value = _currentValue;
+            if (isVideoKnob)
+            {
+                VideoPlayerControls.instance.isDragging = true;
+            }
             handleDisplay.SetActive(true);
-            handleDisplaySelector.UpdateDisplayText(targetSlider.value);
+            thisSlider.value = _currentValue;
+            handleDisplaySelector.UpdateDisplayText(thisSlider.value);
         }
 
         public void UpdateTransform()
@@ -132,8 +139,8 @@ namespace Oculus.Interaction
 
             _previousGrabPose = grabPoint;
 
-            targetSlider.value = _currentValue;
-            handleDisplaySelector.UpdateDisplayText(targetSlider.value);
+            thisSlider.value = _currentValue;
+            handleDisplaySelector.UpdateDisplayText(thisSlider.value);
         }
 
         public void EndTransform()
@@ -149,6 +156,10 @@ namespace Oculus.Interaction
             }
 
             handleDisplay.SetActive(false);
+            if (isVideoKnob)
+            {
+                VideoPlayerControls.instance.isDragging = false;
+            }
         }
 
         #region Inject

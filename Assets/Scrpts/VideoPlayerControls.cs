@@ -5,12 +5,17 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using Oculus.Interaction;
 
 namespace VideoPlayerControlScript
 {
     public class VideoPlayerControls : MonoBehaviour
     {
+        public static VideoPlayerControls instance;
+
         public VideoPlayer videoPlayer; // VideoPlayer 컴포넌트
+        public TextMeshProUGUI timeText;    // 메인 타임 표시 UI (00:00 / 00:00 등)
+        public GrabbableKnob targetKnob; // 조절할 노브
 
         [Header("Play Button")]
         public GameObject playButton; // Play 버튼
@@ -19,15 +24,33 @@ namespace VideoPlayerControlScript
         private Image buttonImage; // 버튼 이미지
 
         [Header("Sliders")]
+        public Slider videoSlider; // 재생 위치를 조절할 슬라이더
         public Slider audioSlider; // 오디오 볼륨 조절 슬라이더
         public Slider brightnessSlider; // 화면 밝기 조절 슬라이더
 
         public Object screenDimmer; // 화면 어둡게 하는 오브젝트
         private Material screenDimmerMaterial; // 화면 어둡게 하는 오브젝트의 Material
 
+        public bool isDragging = false;
+
+        void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
 
         void Start()
         {
+            // 동영상 준비가 완료되면 슬라이더 설정
+            videoPlayer.prepareCompleted += OnVideoPrepared;
+            videoPlayer.Prepare();
+
             // 버튼의 이미지 컴포넌트 참조
             buttonImage = playButton.GetComponent<Image>();
 
@@ -51,6 +74,61 @@ namespace VideoPlayerControlScript
 
             // 밝기 슬라이더 이벤트 등록
             brightnessSlider.onValueChanged.AddListener(SetBrightness);
+        }
+        void Update()
+        {
+            UpdateTimeText(videoSlider.value);
+
+            // 드래그 중이 아니라면 슬라이더 자동 업데이트
+            if (!isDragging)
+            {
+                UpdateSliderValue();
+                targetKnob.SetKnobValue(videoSlider.value);
+            }
+            else if (isDragging)
+            {
+                videoPlayer.time = videoSlider.value * videoPlayer.length;
+            }
+        }
+
+        private void OnVideoPrepared(VideoPlayer vp)
+        {
+            videoSlider.value = 0;
+            videoSlider.maxValue = 1; // 0~1 정규화
+            UpdateTimeText(videoSlider.value);
+        }
+
+        private void UpdateSliderValue()
+        {
+            if (videoPlayer.length > 0)
+            {
+                videoSlider.value = (float)(videoPlayer.time / videoPlayer.length);
+            }
+            else
+            {
+                videoSlider.value = 0;
+            }
+        }
+
+        public void UpdateTimeText(float sliderValue)
+        {
+            if (timeText == null) return;
+
+            double currentTime = sliderValue * videoPlayer.length;
+            double totalTime = videoPlayer.length;
+
+            string currentTimeString = FormatTime(currentTime);
+            string totalTimeString = FormatTime(totalTime);
+
+            timeText.text = $"{currentTimeString} / {totalTimeString}";
+        }
+
+
+        private string FormatTime(double time)
+        {
+            int minutes = Mathf.FloorToInt((float)time / 60f);
+            int seconds = Mathf.FloorToInt((float)time % 60f);
+            return $"{minutes:D2}:{seconds:D2}";
         }
 
         public void TogglePlayPause()

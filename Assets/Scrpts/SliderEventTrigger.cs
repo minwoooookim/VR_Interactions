@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SliderEventTrigger : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
-    [SerializeField] private Slider targetSlider;
+    [SerializeField] private Slider thisSlider;
     [SerializeField] private GrabbableKnob targetKnob;
     [SerializeField] private GameObject handleDisplay;  
     [SerializeField] private HandleDisplaySelector handleDisplaySelector;
@@ -13,14 +13,14 @@ public class SliderEventTrigger : MonoBehaviour, IPointerDownHandler, IPointerUp
     private void Start()
     {
         handleDisplay.SetActive(false);
-        handleDisplaySelector.UpdateDisplayText(targetSlider.value);
+        handleDisplaySelector.UpdateDisplayText(thisSlider.value);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         handleDisplay.SetActive(true);
-        handleDisplaySelector.UpdateDisplayText(targetSlider.value);
-        targetKnob.SetKnobValue(targetSlider.value);
+        handleDisplaySelector.UpdateDisplayText(thisSlider.value);
+        targetKnob.SetKnobValue(thisSlider.value);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -30,8 +30,8 @@ public class SliderEventTrigger : MonoBehaviour, IPointerDownHandler, IPointerUp
 
     public void OnDrag(PointerEventData eventData)
     {
-        handleDisplaySelector.UpdateDisplayText(targetSlider.value);
-        targetKnob.SetKnobValue(targetSlider.value);
+        handleDisplaySelector.UpdateDisplayText(thisSlider.value);
+        targetKnob.SetKnobValue(thisSlider.value);
     }
 
 
