@@ -1,7 +1,7 @@
 using UnityEngine;
 using Oculus.Interaction; // Meta(구 Oculus) Interaction SDK 네임스페이스
 
-public class ToggleKeyboardButton : MonoBehaviour
+public class KeyboardToggleButton : MonoBehaviour
 {
     [Header("Keyboard Objects")]
     [SerializeField] private GameObject QWERTYKeyboard;
