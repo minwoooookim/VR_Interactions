@@ -10,7 +10,6 @@ namespace Oculus.Interaction
     {
         [SerializeField, Optional] private Transform _pivotTransform = null;
         [SerializeField] private float _twistSensitivity = 1.0f;
-        [SerializeField] private Vector3 referencePoint;
         [SerializeField] private OneGrabRotateConstraints _constraints;
 
         [Serializable]
