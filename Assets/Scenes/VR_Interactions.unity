@@ -11123,7 +11123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661275031855251953, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 70
+      value: 83.39
       objectReference: {fileID: 0}
     - target: {fileID: 6661275031855251953, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11135,11 +11135,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661275031855251953, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.621
+      value: -0.662
       objectReference: {fileID: 0}
     - target: {fileID: 6661275031855251953, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.33364227
+      value: 0.41230956
       objectReference: {fileID: 0}
     - target: {fileID: 6661275031855251953, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_LocalRotation.x
@@ -11147,7 +11147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661275031855251953, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9426998
+      value: -0.9110439
       objectReference: {fileID: 0}
     - target: {fileID: 6661275031855251953, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_LocalRotation.z
@@ -11155,7 +11155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661275031855251953, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.103
+      value: 0.077
       objectReference: {fileID: 0}
     - target: {fileID: 6661275031855251953, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11167,7 +11167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661275031855251953, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -141.02
+      value: -131.3
       objectReference: {fileID: 0}
     - target: {fileID: 6661275031855251953, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -11186,20 +11186,25 @@ PrefabInstance:
       value: "\uC544\uB798 \uC778\uD130\uB809\uC158 \uBC29\uBC95\uB4E4\uC744 \uD14C\uC2A4\uD2B8\uD569\uB2C8\uB2E4.\n-
         \uCEE8\uD2B8\uB864\uB7EC \uC9C1\uC811\uC785\uB825\n- \uCEE8\uD2B8\uB864\uB7EC
         \uB808\uC774\uCE90\uC2A4\uD305\n- \uD578\uB4DC\uD2B8\uB798\uD0B9 \uC9C1\uC811\uC785\uB825\n-
-        \uD578\uB4DC\uD2B8\uB798\uD0B9 \uB808\uC774\uCE90\uC2A4\uD305\n- \uC190\uBAA9\uD68C\uC804\n\uAC01
-        \uBC29\uBC95\uC73C\uB85C \uD654\uBA74\uC5D0 \uB098\uC624\uB294 \uB2E8\uC5B4\uB97C
-        \n6\uD68C \uC785\uB825\uD574\uC8FC\uC138\uC694.\n\uC190\uBAA9\uD68C\uC804\uAE4C\uC9C0
-        \uC644\uB8CC\uD6C4, \uBC18\uB4DC\uC2DC \uD0A4\uBCF4\uB4DC\n\uC804\uD658 \uBC84\uD2BC\uC744
-        \uB20C\uB7EC \uB2E4\uC2DC \uCFFC\uD2F0 \uD0A4\uBCF4\uB4DC\uB85C\n\uC804\uD658
+        \uD578\uB4DC\uD2B8\uB798\uD0B9 \uB808\uC774\uCE90\uC2A4\uD305\n- (\uCEE8\uD2B8\uB864\uB7EC)
+        \uC190\uBAA9\uD68C\uC804\n\n\uAC01 \uBC29\uBC95\uC744 \uC544\uB798\uC758
+        \uC808\uCC28\uC5D0 \uB530\uB77C \uD14C\uC2A4\uD2B8\uD569\uB2C8\uB2E4.\n1.
+        \uC624\uB978\uCABD \uD654\uBA74\uC5D0 \uC608\uC2DC \uB2E8\uC5B4\uAC00 \uD45C\uC2DC\uB429\uB2C8\uB2E4.\n2.
+        \uC608\uC2DC \uB2E8\uC5B4\uB97C \uC785\uB825\uD569\uB2C8\uB2E4.\n3. \uC608\uC2DC
+        \uB2E8\uC5B4\uC640 \uC785\uB825 \uB2E8\uC5B4\uAC00 \uC77C\uCE58\uD558\uBA74
+        \uB2E4\uC74C \uB2E8\uC5B4\uAC00 \uD45C\uC2DC\uB429\uB2C8\uB2E4.\n4. \uCD1D
+        5\uAC1C\uC758 \uB2E8\uC5B4\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.\n\n\uC190\uBAA9\uD68C\uC804\uAE4C\uC9C0
+        \uC644\uB8CC\uD6C4, \uBC18\uB4DC\uC2DC \uD0A4\uBCF4\uB4DC \uC804\uD658 \uBC84\uD2BC\uC744
+        \uB20C\uB7EC \uB2E4\uC2DC \uCFFC\uD2F0 \uD0A4\uBCF4\uB4DC\uB85C \uC804\uD658
         \uD6C4 \uB2E4\uC74C \uC2E4\uD5D8\uC744 \uC9C4\uD589\uD574\uC8FC\uC138\uC694."
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_fontSize
-      value: 4
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_fontSizeBase
-      value: 4
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_HorizontalAlignment
