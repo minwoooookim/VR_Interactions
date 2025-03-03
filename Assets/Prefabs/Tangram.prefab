@@ -463,15 +463,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.008
+      value: -0.073515266
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.388
+      value: 0.9744712
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.014
+      value: 5.7714915
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
       propertyPath: m_LocalRotation.w
@@ -509,22 +509,42 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8229714192486028619, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d830a7941b3332241919393e2faede5b, type: 2}
     - target: {fileID: -7387436486536285727, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7387436486536285727, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 14ea412c7dd73c34ea9038ba24cbc55f, type: 2}
     - target: {fileID: -6199696995164831811, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6199696995164831811, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f319e175d109287499e1384412017edc, type: 2}
     - target: {fileID: -4969506558817801323, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4969506558817801323, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 324ca6d183c52be41a919a77cfd9f3aa, type: 2}
     - target: {fileID: -2885667693350321590, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -2885667693350321590, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3ee252064035f94c9fe0d12223d2c34, type: 2}
     - target: {fileID: -1533143405451067837, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -537,6 +557,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -390187898116336935, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aebe01fcfe84ff14e8e96e344800f524, type: 2}
     - target: {fileID: 919132149155446097, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
       propertyPath: m_Name
       value: Tangram
@@ -557,6 +581,10 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2613603812308142591, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d2f41da4155b914897e030acc7bf7bb, type: 2}
     - target: {fileID: 2924973853040622835, guid: 0895ad9d1507a2f418c96d8925d42865, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
