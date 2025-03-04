@@ -14,20 +14,18 @@ public class TangramExampleDisplayer : MonoBehaviour
 
     void Start()
     {
-        // Resources/Tangram 폴더 내 모든 스프라이트 로드 (20장 이상일 경우 모두 로드)
+        // Resources/Tangram 폴더 내 모든 스프라이트 로드
         allSprites.AddRange(Resources.LoadAll<Sprite>("Tangram"));
 
-        // 로드된 이미지가 없으면 경고 메시지 출력
         if (allSprites.Count == 0)
         {
             Debug.LogWarning("Tangram 폴더에 이미지가 없습니다.");
             return;
         }
 
-        // 처음 섞기
+        // 섞기만 하고, 이미지는 표시하지 않음
         ShuffleCycle();
-        // 첫 이미지 표시
-        DisplayNextImage();
+        displayImage.sprite = null; // 초기에는 빈 화면
     }
 
     // 다음 이미지를 표시하는 함수
