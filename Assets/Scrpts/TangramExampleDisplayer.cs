@@ -30,14 +30,8 @@ public class TangramExampleDisplayer : MonoBehaviour
         DisplayNextImage();
     }
 
-    // 다음 버튼과 연결할 메소드
-    public void OnNextButton()
-    {
-        DisplayNextImage();
-    }
-
     // 다음 이미지를 표시하는 함수
-    private void DisplayNextImage()
+    public void DisplayNextImage()
     {
         // 현재 주기 내에 이미지가 없으면 다시 섞음
         if (currentCycle.Count == 0)
