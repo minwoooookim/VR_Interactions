@@ -28,8 +28,13 @@ public class TangramExampleDisplayer : MonoBehaviour
         displayImage.sprite = null; // 초기에는 빈 화면
     }
 
+    public void OnPokeButton()
+    {
+        DisplayNextImage();
+    }
+
     // 다음 이미지를 표시하는 함수
-    public void DisplayNextImage()
+    private void DisplayNextImage()
     {
         // 현재 주기 내에 이미지가 없으면 다시 섞음
         if (currentCycle.Count == 0)

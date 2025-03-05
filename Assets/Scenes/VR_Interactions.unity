@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Next Tangram Example Button
       objectReference: {fileID: 0}
+    - target: {fileID: 2492225211347723977, guid: 64b92e71842592b4aaede187685f76c1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5320466146176335758, guid: 64b92e71842592b4aaede187685f76c1, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -1364,15 +1368,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2514675399181695721, guid: 88038116d3e5e2a4bb84344e6d85027a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.147
       objectReference: {fileID: 0}
     - target: {fileID: 2514675399181695721, guid: 88038116d3e5e2a4bb84344e6d85027a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.418
       objectReference: {fileID: 0}
     - target: {fileID: 2514675399181695721, guid: 88038116d3e5e2a4bb84344e6d85027a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.581
+      value: 6.099
       objectReference: {fileID: 0}
     - target: {fileID: 2514675399181695721, guid: 88038116d3e5e2a4bb84344e6d85027a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3543,7 +3547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pokeInteractable: {fileID: 1075602142}
-  tangramExampleDisplayer: {fileID: 1607218148}
+  tangramExampleDisplayer: {fileID: 0}
 --- !u!1 &1147799297
 GameObject:
   m_ObjectHideFlags: 0
