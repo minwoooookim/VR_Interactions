@@ -1,69 +1,48 @@
-using System.Collections.Generic;
 using UnityEngine;
 using Oculus.Interaction;
 
 public class RespawnTangram : MonoBehaviour
 {
-    [Header("Tangram Parents")]
-    [SerializeField] private GameObject tangramParent1;
-    [SerializeField] private GameObject tangramParent2;
+    [Header("Tangram Parent")]
+    [SerializeField] private GameObject tangramParent;
 
     [Header("Poke Interactable")]
     [SerializeField] private PokeInteractable pokeInteractable;
 
-    // 각 parent의 자식 정보를 별도로 저장할 구조체
-    private class ChildData
-    {
-        public Transform transform;
-        public Vector3 originalLocalPosition;
-        public Quaternion originalLocalRotation;
-        public Rigidbody rigidbody;
-    }
-
-    private List<ChildData> childData1 = new List<ChildData>();
-    private List<ChildData> childData2 = new List<ChildData>();
+    // 자식 Transform들을 저장할 배열
+    private Transform[] childTransforms;
+    private Vector3[] originalPositions;
+    private Quaternion[] originalRotations;
+    private Rigidbody[] childRigidbodies; // 조각 각각에 Rigidbody가 붙어있다면
 
     private void Awake()
     {
-        // parent1의 자식 정보 저장 (비활성 객체 포함)
-        if (tangramParent1 != null)
+        if (tangramParent == null)
         {
-            Transform[] transforms = tangramParent1.GetComponentsInChildren<Transform>(true);
-            foreach (Transform t in transforms)
-            {
-                ChildData data = new ChildData();
-                data.transform = t;
-                data.originalLocalPosition = t.localPosition;
-                data.originalLocalRotation = t.localRotation;
-                data.rigidbody = t.GetComponent<Rigidbody>();
-                childData1.Add(data);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Tangram Parent1이 할당되지 않았습니다.", this);
+            Debug.LogWarning("Tangram 부모 오브젝트가 할당되지 않았습니다.", this);
+            return;
         }
 
-        // parent2의 자식 정보 저장 (비활성 객체 포함)
-        if (tangramParent2 != null)
+        // 자식들(자기 자신 포함)을 모두 가져오기
+        childTransforms = tangramParent.GetComponentsInChildren<Transform>();
+
+        // 배열 크기만큼 초기화
+        originalPositions = new Vector3[childTransforms.Length];
+        originalRotations = new Quaternion[childTransforms.Length];
+        childRigidbodies = new Rigidbody[childTransforms.Length];
+
+        // 0번째는 부모 자신이므로, 실제 조각들은 1번째부터일 수도 있음
+        for (int i = 0; i < childTransforms.Length; i++)
         {
-            Transform[] transforms = tangramParent2.GetComponentsInChildren<Transform>(true);
-            foreach (Transform t in transforms)
-            {
-                ChildData data = new ChildData();
-                data.transform = t;
-                data.originalLocalPosition = t.localPosition;
-                data.originalLocalRotation = t.localRotation;
-                data.rigidbody = t.GetComponent<Rigidbody>();
-                childData2.Add(data);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Tangram Parent2가 할당되지 않았습니다.", this);
+            // 초기 local 위치/회전 저장
+            originalPositions[i] = childTransforms[i].localPosition;
+            originalRotations[i] = childTransforms[i].localRotation;
+
+            // 혹시 자식 조각에 Rigidbody가 있다면 따로 저장
+            childRigidbodies[i] = childTransforms[i].GetComponent<Rigidbody>();
         }
 
-        // PokeInteractable 이벤트 연결
+        // PokeInteractable 연결
         if (pokeInteractable != null)
         {
             pokeInteractable.WhenStateChanged += HandleStateChanged;
@@ -84,32 +63,25 @@ public class RespawnTangram : MonoBehaviour
 
     private void HandleStateChanged(InteractableStateChangeArgs args)
     {
-        // 버튼(또는 해당 이벤트)로 리스폰 호출
+        // 상태 변화 시마다 리셋
         Respawn();
     }
 
-    // 두 parent 모두 리스폰 실행
-    public void Respawn()
+    private void Respawn()
     {
-        ResetParent(childData1);
-        ResetParent(childData2);
-    }
+        if (childTransforms == null) return;
 
-    // 저장해둔 자식 정보를 기준으로 초기화
-    private void ResetParent(List<ChildData> dataList)
-    {
-        foreach (ChildData data in dataList)
+        // 자식들의 위치/회전 초기화
+        for (int i = 0; i < childTransforms.Length; i++)
         {
-            if (data.transform != null)
-            {
-                data.transform.localPosition = data.originalLocalPosition;
-                data.transform.localRotation = data.originalLocalRotation;
+            childTransforms[i].localPosition = originalPositions[i];
+            childTransforms[i].localRotation = originalRotations[i];
 
-                if (data.rigidbody != null)
-                {
-                    data.rigidbody.velocity = Vector3.zero;
-                    data.rigidbody.angularVelocity = Vector3.zero;
-                }
+            // 물리 상태도 초기화
+            if (childRigidbodies[i] != null)
+            {
+                childRigidbodies[i].velocity = Vector3.zero;
+                childRigidbodies[i].angularVelocity = Vector3.zero;
             }
         }
     }
