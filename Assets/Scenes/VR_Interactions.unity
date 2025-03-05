@@ -3376,7 +3376,7 @@ GameObject:
   - component: {fileID: 1067494558}
   - component: {fileID: 1067494557}
   m_Layer: 5
-  m_Name: Test Word
+  m_Name: Test Sentence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3400,7 +3400,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 3}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 210, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1067494557
 MonoBehaviour:
@@ -3704,8 +3704,7 @@ PrefabInstance:
       value: "\uC544\uB798 \uC778\uD130\uB809\uC158 \uBC29\uBC95\uB4E4\uC744 \n\uD14C\uC2A4\uD2B8\uD569\uB2C8\uB2E4.\n-
         \uCEE8\uD2B8\uB864\uB7EC \uC9C1\uC811\uC785\uB825\n- \uCEE8\uD2B8\uB864\uB7EC
         \uB808\uC774\uCE90\uC2A4\uD305\n- \uD578\uB4DC\uD2B8\uB798\uD0B9 \uC9C1\uC811\uC785\uB825\n-
-        \uD578\uB4DC\uD2B8\uB798\uD0B9 \uB808\uC774\uCE90\uC2A4\uD305\n- (\uCEE8\uD2B8\uB864\uB7EC)
-        \uC190\uBAA9\uD68C\uC804\n"
+        (\uCEE8\uD2B8\uB864\uB7EC) \uC190\uBAA9\uD68C\uC804\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_fontSize
@@ -6169,7 +6168,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -3}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 210, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1798947292
 MonoBehaviour:
@@ -6371,7 +6370,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test Word
+  m_text: Test Sentence
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6907,10 +6906,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1967185947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9077c485061e86e4cb85daf0350fda98, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c9125c991daa694b9d0c259eeb4f9ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testWordText: {fileID: 1892775375}
+  testSentenceText: {fileID: 1892775375}
   inputField: {fileID: 1798947290}
 --- !u!1001 &2021409419
 PrefabInstance:
