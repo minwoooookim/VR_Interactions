@@ -114,16 +114,15 @@ namespace WristKeyboard
                 isLeftPrintKeyCalled = true;
             }
 
-            // 원래는 한 칸 띄우기 기능 (왼손 그립 입력)
-            // 실험을 위해 일시적으로 비활성화
+            // 한 칸 띄우기 기능 (왼손 그립 입력)
             if (isGripPressed && !isSpaceCalled)
             {
-                //inputField.text += " ";
-                //isSpaceCalled = true;
+                inputField.text += " ";
+                isSpaceCalled = true;
             }
             else if (!isGripPressed)
             {
-                //isSpaceCalled = false;
+                isSpaceCalled = false;
             }
         }
 
