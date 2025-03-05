@@ -166,9 +166,11 @@ namespace VideoPlayerControlScript
 
         void SetBrightness(float brightness)
         {
+            float mappedBrightness = Mathf.Lerp(0.2f, 1.0f, brightness);
+ 
             // Screen Dimmer의 alpha 값 설정 (brightness 값이 클수록 alpha 값이 작아지도록 반대로 설정)
             Color color = screenDimmerMaterial.color;
-            color.a = 1.0f - brightness;
+            color.a = 1.0f - mappedBrightness;
             screenDimmerMaterial.color = color;
         }
     }
