@@ -46,6 +46,11 @@ public class SentenceDisplayer : MonoBehaviour
         }
     }
 
+    public void ShowNextWord()
+    {
+        ShowRandomWord();
+    }
+
     // 단어를 랜덤으로 선택하여 표시하는 메서드
     private void ShowRandomWord(bool firstWord = false)
     {

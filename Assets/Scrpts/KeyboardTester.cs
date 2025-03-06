@@ -1,13 +1,12 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TangramTester : MonoBehaviour
+public class KeyboardTester : MonoBehaviour
 {
     [SerializeField] private TangramExampleDisplayer tangramExampleDisplayer;
     [SerializeField] private TMP_Text playerNumber;
@@ -78,7 +77,7 @@ public class TangramTester : MonoBehaviour
         testStarted = false;
     }
 
-    // 결과를 파일로 저장하는 함수 (기존 기록과 새 시간을 합산하여 Total Time 기록)
+    // 결과를 파일로 저장하는 함수
     private void WriteResultToFile(string imageName, float elapsedTime)
     {
         // 바탕화면의 results 폴더 경로 설정
@@ -99,41 +98,17 @@ public class TangramTester : MonoBehaviour
         string fileName = $"Player_{playerNumber.text}_Tangram_{toggleName}.txt";
         string filePath = Path.Combine(resultsFolder, fileName);
 
-        float totalTime = 0f;
-        List<string> lines = new List<string>();
-
-        // 파일이 존재하면 기존 내용 읽어오기
-        if (File.Exists(filePath))
-        {
-            lines = File.ReadAllLines(filePath).ToList();
-            // 만약 마지막 줄이 "Total Time"으로 시작하면 제거
-            if (lines.Count > 0 && lines[lines.Count - 1].StartsWith("Total Time"))
-            {
-                lines.RemoveAt(lines.Count - 1);
-            }
-            // 기존 파일의 모든 시간 값을 합산 (실수로 파싱 가능한 라인만)
-            foreach (string line in lines)
-            {
-                if (float.TryParse(line, out float time))
-                {
-                    totalTime += time;
-                }
-            }
-        }
-
-        // 새로 기록할 시간 추가
-        totalTime += elapsedTime;
-
         // 기록할 내용: 이미지 이름과 시간 (초, 소수점 셋째자리)
         string contentToAppend = $"{imageName}\n{elapsedTime.ToString("F3")}";
 
-        // 새로운 기록 추가 (기존 내용 뒤에)
-        lines.Add(imageName);
-        lines.Add(elapsedTime.ToString("F3"));
-        // Total Time 기록 추가
-        lines.Add("Total Time: " + totalTime.ToString("F3"));
-
-        // 파일 내용 저장 (전체 내용 덮어쓰기)
-        File.WriteAllLines(filePath, lines);
+        // 파일이 존재하면 개행 후 내용 추가, 아니면 새 파일 생성
+        if (File.Exists(filePath))
+        {
+            File.AppendAllText(filePath, "\n" + contentToAppend);
+        }
+        else
+        {
+            File.WriteAllText(filePath, contentToAppend);
+        }
     }
 }
