@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Oculus.Interaction;
 
-public class NextTangramExampleButton : MonoBehaviour
+public class CompleteTangramTestButton : MonoBehaviour
 {
     [SerializeField] private PokeInteractable pokeInteractable;
-    [SerializeField] private TangramExampleDisplayer tangramExampleDisplayer;
+    [SerializeField] private TangramTester tangramTester;
 
     private void Awake()
     {
@@ -27,10 +27,10 @@ public class NextTangramExampleButton : MonoBehaviour
 
     private void HandleStateChanged(InteractableStateChangeArgs args)
     {
-        // PokeInteractable이 누른 상태(Select)가 되면 TangramExampleDisplayer의 OnPokeButton() 호출
+        // PokeInteractable이 누른 상태(Select)가 되면 실행
         if (args.NewState == InteractableState.Select)
         {
-            tangramExampleDisplayer.OnPokeButton();
+            tangramTester.OnCompleteButton();
         }
     }
 }

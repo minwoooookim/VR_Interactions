@@ -28,9 +28,26 @@ public class TangramExampleDisplayer : MonoBehaviour
         displayImage.sprite = null; // 초기에는 빈 화면
     }
 
-    public void OnPokeButton()
+    public void ShowNextImage()
     {
         DisplayNextImage();
+    }
+
+    public string GetCurrentImageName()
+    {
+        if (displayImage.sprite != null)
+        {
+            return displayImage.sprite.name;
+        }
+        else
+        {
+            return "현재 표시된 이미지가 없습니다.";
+        }
+    }
+
+    public void EmptyImage()
+    {
+        displayImage.sprite = null;
     }
 
     // 다음 이미지를 표시하는 함수
