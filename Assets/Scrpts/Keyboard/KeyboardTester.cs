@@ -15,17 +15,10 @@ public class KeyboardTester : MonoBehaviour
     [SerializeField] private ToggleGroup InteractionSelector;
     [SerializeField] private TMP_Text countdownText;
 
-    // 시작버튼 중복 입력 방지를 위한 flag
-    private bool isTestRunning = false;
-
-    // 테스트 전체 반복 횟수 (3번)
-    private const int repeatCount = 3;
-
-    // 세션 동안 누적된 시간
-    private float sessionTotalTime = 0f;
-
-    // 결과 파일 경로 (반복마다 동일하므로, 한 번 계산)
-    private string filePath = string.Empty;
+    private bool isTestRunning = false; // 시작버튼 중복 입력 방지를 위한 flag 
+    private const int repeatCount = 3; // 테스트 전체 반복 횟수 (3번)  
+    private float sessionTotalTime = 0f; // 세션 동안 누적된 시간
+    private string filePath = string.Empty; // 결과 파일 경로 (반복마다 동일하므로, 한 번 계산)
 
     // 외부 버튼에서 호출하는 시작 함수
     public void StartTest()

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Oculus.Interaction;
 
-public class RespawnTangram : MonoBehaviour
+public class TangramRespawner : MonoBehaviour
 {
     [Header("Tangram Parent")]
     [SerializeField] private GameObject tangramParent;
@@ -64,6 +64,11 @@ public class RespawnTangram : MonoBehaviour
     private void HandleStateChanged(InteractableStateChangeArgs args)
     {
         // 상태 변화 시마다 리셋
+        Respawn();
+    }
+
+    public void RespawnTangram()
+    {
         Respawn();
     }
 

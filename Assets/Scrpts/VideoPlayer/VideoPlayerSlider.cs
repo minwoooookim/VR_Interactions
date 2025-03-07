@@ -10,17 +10,17 @@ namespace VideoPlayerControlScript
 {
     public class VideoPlayerSlider : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
-        [SerializeField] private VideoPlayerControls v;
+        [SerializeField] private VideoPlayerControls videoPlayerControls;
         public Slider videoSlider;
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            v.isDragging = true;
+            videoPlayerControls.isDragging = true;
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            v.isDragging = false;
+            videoPlayerControls.isDragging = false;
         }
 
         public void OnDrag(PointerEventData eventData)

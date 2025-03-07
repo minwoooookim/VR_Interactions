@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Oculus.Interaction;
 
-public class CompleteTangramTestButton : MonoBehaviour
+public class NextTangramButton : MonoBehaviour
 {
     [SerializeField] private PokeInteractable pokeInteractable;
     [SerializeField] private TangramTester tangramTester;
@@ -30,7 +30,7 @@ public class CompleteTangramTestButton : MonoBehaviour
         // PokeInteractable이 누른 상태(Select)가 되면 실행
         if (args.NewState == InteractableState.Select)
         {
-            tangramTester.OnCompleteButton();
+            tangramTester.OnNextButton();
         }
     }
 }
