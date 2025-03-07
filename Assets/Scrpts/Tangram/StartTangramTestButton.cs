@@ -30,7 +30,7 @@ public class StartTangramTestButton : MonoBehaviour
         // PokeInteractable이 누른 상태(Select)가 되면 실행
         if (args.NewState == InteractableState.Select)
         {
-            tangramTester.OnStartButton();
+            tangramTester.StartTest();
         }
     }
 }

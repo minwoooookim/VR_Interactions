@@ -1665,10 +1665,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\uC900\uBE44"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 152b48916d05b694a99861d9c622969f, type: 2}
+  m_sharedMaterial: {fileID: 8174611082349695617, guid: 152b48916d05b694a99861d9c622969f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2293,6 +2293,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: OVRCameraRigInteraction
       objectReference: {fileID: 0}
+    - target: {fileID: 5581906896123471574, guid: 88038116d3e5e2a4bb84344e6d85027a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2809fdc81cb0cf444827152d023d18e4, type: 2}
+    - target: {fileID: 5581906896219483179, guid: 88038116d3e5e2a4bb84344e6d85027a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2809fdc81cb0cf444827152d023d18e4, type: 2}
     - target: {fileID: 7140855562743463433, guid: 88038116d3e5e2a4bb84344e6d85027a, type: 3}
       propertyPath: _visualOffset
       value: 0
@@ -2826,9 +2834,11 @@ PrefabInstance:
         \uBAA8\uC591\uC774 \uC81C\uC2DC\uB429\uB2C8\uB2E4.\n2. \uC81C\uC2DC\uB41C
         \uBAA8\uC591\uACFC \uB3D9\uC77C\uD558\uAC8C \uCE60\uAD50 \uC870\uAC01\uC744
         \uBC30\uCE58\uD574\uC8FC\uC138\uC694.\n3. \uBC30\uCE58\uB97C \uC644\uB8CC\uD558\uBA74,
-        \uC644\uB8CC \uBC84\uD2BC\uC744 \uB20C\uB7EC\uC8FC\uC138\uC694.\n4. \uCE60\uAD50
-        \uC870\uAC01\uC744 \uB9AC\uC2A4\uD3F0\uD558\uACE0 \uC2DC\uC791 \uBC84\uD2BC\uC744
-        \uB20C\uB7EC\uC8FC\uC138\uC694.\n5. \uC704 \uACFC\uC815\uC744 5\uBC88 \uBC18\uBCF5\uD574\uC8FC\uC138\uC694.\n\n\uCEE8\uD2B8\uB864\uB7EC
+        \uB2E4\uC74C \uBC84\uD2BC\uC744 \uB20C\uB7EC\uC8FC\uC138\uC694.\n4. \uB2E4\uC74C
+        \uBC84\uD2BC\uC744 \uB204\uB974\uBA74, \uCE60\uAD50\uB180\uC774\uAC00 \uC790\uB3D9
+        \uCD08\uAE30\uD654\uB418\uBA70\n     3\uCD08 \uB4A4 \uC0C8\uB85C\uC6B4 \uBAA8\uC591\uC774
+        \uC81C\uC2DC\uB429\uB2C8\uB2E4.\n4. \uC704 \uACFC\uC815\uC744 \uCD1D 5\uBC88
+        \uC9C4\uD589\uD558\uBA74 \uC885\uB8CC\uB429\uB2C8\uB2E4.\n\n\uCEE8\uD2B8\uB864\uB7EC
         \uC9C1\uC811\uC785\uB825\uC740 \uADF8\uB9BD\uBC84\uD2BC(\uC911\uC9C0)\uB85C
         \uC7A1\uAE30 \uAC00\uB2A5\n\uCEE8\uD2B8\uB864\uB7EC \uB808\uC774\uCE90\uC2A4\uD305\uC740
         \uD2B8\uB9AC\uAC70\uBC84\uD2BC(\uAC80\uC9C0)\uB85C \uC7A1\uAE30 \uAC00\uB2A5\n\uD578\uB4DC\uD2B8\uB798\uD0B9\uC740
@@ -3206,6 +3216,7 @@ MonoBehaviour:
   playerNumber: {fileID: 205244093}
   InteractionSelector: {fileID: 1632073474}
   countdownText: {fileID: 1119858146}
+  tangramRespawner: {fileID: 5320466145431104451}
 --- !u!1001 &593729394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5060,7 +5071,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963930469}
   m_Layer: 5
-  m_Name: Complete
+  m_Name: Next
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5807,7 +5818,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2492225211347723977, guid: 64b92e71842592b4aaede187685f76c1, type: 3}
       propertyPath: m_Name
-      value: Complete Button
+      value: Next Button
       objectReference: {fileID: 0}
     - target: {fileID: 5320466146176335758, guid: 64b92e71842592b4aaede187685f76c1, type: 3}
       propertyPath: m_LocalScale.x
@@ -5962,10 +5973,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\uC900\uBE44"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 152b48916d05b694a99861d9c622969f, type: 2}
+  m_sharedMaterial: {fileID: 8174611082349695617, guid: 152b48916d05b694a99861d9c622969f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7034,7 +7045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_text
-      value: "\uC644\uB8CC"
+      value: "\uB2E4\uC74C"
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_fontSize
@@ -7046,7 +7057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8241900581664599320, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_Name
-      value: Complete Button Label
+      value: Next Button Label
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13315,6 +13326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Video Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1488860672834969420, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+      propertyPath: videoPlayerControls
+      value: 
+      objectReference: {fileID: 4276986500795781628}
     - target: {fileID: 2865139641834448271, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -13448,6 +13463,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+--- !u!114 &4276986500795781628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 523617792595847165, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+  m_PrefabInstance: {fileID: 4276986500795781627}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6493be6dfdaa0c74fa714bdfc0bb1565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4473697303487573002
 MonoBehaviour:
   m_ObjectHideFlags: 0

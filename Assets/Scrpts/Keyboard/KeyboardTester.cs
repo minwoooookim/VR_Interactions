@@ -16,7 +16,7 @@ public class KeyboardTester : MonoBehaviour
     [SerializeField] private TMP_Text countdownText;
 
     private bool isTestRunning = false; // 시작버튼 중복 입력 방지를 위한 flag 
-    private const int repeatCount = 3; // 테스트 전체 반복 횟수 (3번)  
+    private const int repeatCount = 3; // 테스트 전체 반복 횟수
     private float sessionTotalTime = 0f; // 세션 동안 누적된 시간
     private string filePath = string.Empty; // 결과 파일 경로 (반복마다 동일하므로, 한 번 계산)
 
@@ -91,6 +91,7 @@ public class KeyboardTester : MonoBehaviour
         sentenceDisplayer.inputField.text = string.Empty;
         sessionTotalTime = 0f;
         isTestRunning = false;
+        countdownText.text = "완료";
     }
 
     // 3초 카운트다운 코루틴 (초 단위로 countdownText에 표시)
