@@ -2,27 +2,41 @@ using UnityEngine;
 using TMPro;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 public class SentenceDisplayer : MonoBehaviour
 {
     [Header("UI References")]
-    [SerializeField] public TMP_Text testSentenceText;     // 현재 표시되는 단어
-    [SerializeField] public TMP_InputField inputField;   // 사용자가 타이핑하는 InputField
+    [SerializeField] public TMP_Text testSentenceText;     // 현재 표시되는 문장
+    [SerializeField] public TMP_InputField inputField;       // 사용자가 타이핑하는 InputField
 
-    private List<string> allWords = new List<string>();         // phrases.txt에서 읽어온 모든 단어
-    private List<string> availableAllWords = new List<string>();  // 아직 사용되지 않은 모든 단어
-
+    private List<string> allWords = new List<string>();  // phrases.txt에서 읽어온 모든 문장
+    // 문장 길이별로 아직 사용되지 않은 문장들을 저장하는 딕셔너리
+    private Dictionary<int, List<string>> availableWordsByLength = new Dictionary<int, List<string>>();
 
     private void Start()
     {
-        // phrases.txt 파일에서 단어들 읽어오기
+        // phrases.txt 파일 경로
         string filePath = Path.Combine(Application.dataPath, "phrases.txt");
 
         if (File.Exists(filePath))
         {
             string[] lines = File.ReadAllLines(filePath);
             allWords.AddRange(lines);
-            availableAllWords.AddRange(lines);
+
+            // 문장 길이별로 availableWordsByLength 초기화
+            foreach (string sentence in allWords)
+            {
+                int len = sentence.Length;
+                if (availableWordsByLength.ContainsKey(len))
+                {
+                    availableWordsByLength[len].Add(sentence);
+                }
+                else
+                {
+                    availableWordsByLength[len] = new List<string>() { sentence };
+                }
+            }
         }
         else
         {
@@ -33,14 +47,10 @@ public class SentenceDisplayer : MonoBehaviour
         inputField.text = string.Empty;
     }
 
-    public void ShowNextWord()
+    // 외부에서 호출할 때 원하는 길이를 인자로 전달
+    public void ShowNextSentence(int desiredLength)
     {
-        ShowRandomWord();
-    }
-
-    public void ShowFirstWord()
-    {
-        ShowRandomWord(firstWord: true);
+        ShowRandomSentence(desiredLength);
     }
 
     public string GetCurrentSentence()
@@ -48,35 +58,27 @@ public class SentenceDisplayer : MonoBehaviour
         return testSentenceText.text;
     }
 
-    // 단어를 랜덤으로 선택하여 표시하는 메서드
-    private void ShowRandomWord(bool firstWord = false)
+    // 원하는 길이의 문장들 중 아직 출력되지 않은 문장을 랜덤 선택
+    private void ShowRandomSentence(int desiredLength)
     {
         string nextWord = string.Empty;
 
-        // 첫 단어 선택은 availableAllWords에서 진행
-        if (firstWord)
+        // 선택한 길이의 문장 리스트가 없거나 모두 사용되었다면 재설정
+        if (!availableWordsByLength.ContainsKey(desiredLength) || availableWordsByLength[desiredLength].Count == 0)
         {
-            if (availableAllWords.Count == 0)
+            List<string> wordsOfDesiredLength = allWords.Where(s => s.Length == desiredLength).ToList();
+            // 현재 표시된 문장이 있다면 중복 제거
+            if (!string.IsNullOrEmpty(testSentenceText.text))
             {
-                availableAllWords.AddRange(allWords);
+                wordsOfDesiredLength.Remove(testSentenceText.text);
             }
-            int index = Random.Range(0, availableAllWords.Count);
-            nextWord = availableAllWords[index];
-            availableAllWords.RemoveAt(index);
+            availableWordsByLength[desiredLength] = wordsOfDesiredLength;
         }
-        else
-        {
-            // availableAllWords에서 중복되지 않게 랜덤 선택
-            if (availableAllWords.Count == 0)
-            {
-                // 모든 단어를 사용했다면 원본 리스트에서 현재 단어를 제외하고 재설정
-                availableAllWords.AddRange(allWords);
-                availableAllWords.Remove(testSentenceText.text);
-            }
-            int index = Random.Range(0, availableAllWords.Count);
-            nextWord = availableAllWords[index];
-            availableAllWords.RemoveAt(index);
-        }
+
+        List<string> availableList = availableWordsByLength[desiredLength];
+        int index = Random.Range(0, availableList.Count);
+        nextWord = availableList[index];
+        availableList.RemoveAt(index);
 
         testSentenceText.text = nextWord;
         inputField.text = string.Empty;

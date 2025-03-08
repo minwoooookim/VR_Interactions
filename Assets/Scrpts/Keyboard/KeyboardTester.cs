@@ -53,11 +53,8 @@ public class KeyboardTester : MonoBehaviour
         // 전체 테스트 반복: 3번 반복 후 종료
         for (int i = 0; i < repeatCount; i++)
         {
-            // 첫 호출이면 ShowFirstWord, 이후에는 ShowNextWord 호출
-            if (i == 0)
-                sentenceDisplayer.ShowFirstWord();
-            else
-                sentenceDisplayer.ShowNextWord();
+            // 첫 번째 호출 시 ShowNextWord(19)로 시작, 이후 20, 21 순으로 호출
+            sentenceDisplayer.ShowNextSentence(19 + i);
 
             // 시간 측정 시작
             Stopwatch stopwatch = new Stopwatch();
