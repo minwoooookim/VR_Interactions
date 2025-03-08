@@ -123,9 +123,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317837431453019759}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 2.1277218}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.065, y: 0.065, z: 0.065}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3000221971881661263}
@@ -134,6 +134,7 @@ RectTransform:
   - {fileID: 7828036953097727214}
   - {fileID: 66779452453715473}
   - {fileID: 8013289375469275193}
+  - {fileID: 1634335298496223169}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1822,6 +1823,41 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &4432563924777370788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1634335298496223169}
+  m_Layer: 5
+  m_Name: Videoplayer Tester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1634335298496223169
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4432563924777370788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5937705505388263692}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4720984442441960925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,7 +2173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pivotTransform: {fileID: 833446953198835544}
   _twistSensitivity: 1
-  referencePoint: {x: 0, y: 0, z: 0}
   _constraints:
     MinAngle:
       Constrain: 1
@@ -2857,7 +2892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca95ef1638ea8db4483769b2b423191a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v: {fileID: 523617792595847165}
+  videoPlayerControls: {fileID: 523617792595847165}
   videoSlider: {fileID: 6917112901183975478}
 --- !u!114 &8041626303707763521
 MonoBehaviour:
@@ -3207,7 +3242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pivotTransform: {fileID: 8829831866294833281}
   _twistSensitivity: 1
-  referencePoint: {x: 0, y: 0, z: 0}
   _constraints:
     MinAngle:
       Constrain: 1
@@ -3570,7 +3604,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pivotTransform: {fileID: 4756151875782774977}
   _twistSensitivity: 1
-  referencePoint: {x: 0, y: 0, z: 0}
   _constraints:
     MinAngle:
       Constrain: 1
