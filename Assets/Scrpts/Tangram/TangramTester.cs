@@ -12,7 +12,7 @@ public class TangramTester : MonoBehaviour
 {
     [SerializeField] private TangramExampleDisplayer tangramExampleDisplayer;
     [SerializeField] private TMP_Text playerNumber;
-    [SerializeField] private ToggleGroup InteractionSelector;
+    [SerializeField] private ToggleGroup interactionToggleGroup;
     [SerializeField] private TMP_Text countdownText;
     [SerializeField] private TangramRespawner tangramRespawner;
 
@@ -45,7 +45,7 @@ public class TangramTester : MonoBehaviour
             Directory.CreateDirectory(resultsPath);
         }
 
-        Toggle activeToggle = InteractionSelector.ActiveToggles().FirstOrDefault();
+        Toggle activeToggle = interactionToggleGroup.ActiveToggles().FirstOrDefault();
         string toggleName = activeToggle != null ? activeToggle.name : "Unknown";
         string fileName = $"Player_{playerNum}_Tangram_{toggleName}.txt";
         filePath = Path.Combine(resultsPath, fileName);

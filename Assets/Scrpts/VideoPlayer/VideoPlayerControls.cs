@@ -182,5 +182,15 @@ namespace VideoPlayerControlScript
             color.a = 1.0f - mappedBrightness;
             screenDimmerMaterial.color = color;
         }
+
+        public void ResetPlayer()
+        {
+            videoPlayer.Stop();
+            videoSlider.value = 0;
+            targetKnob.SetKnobValue(0);
+            audioSlider.value = 0.5f;
+            brightnessSlider.value = 0.5f;
+            //아마 다른 노브도 추가해야 할 것 같음
+        }
     }
 }

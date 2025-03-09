@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VideoPlayerControlScript;
+using VideoplayerTesterNamespace;
 
 namespace Oculus.Interaction
 {
@@ -39,6 +40,7 @@ namespace Oculus.Interaction
         [SerializeField] private Slider thisSlider;
         [SerializeField] private GameObject handleDisplay;
         [SerializeField] private HandleDisplaySelector handleDisplaySelector;
+        [SerializeField] private VideoplayerTester videoTester;
 
         // [변경] 부모 오브젝트의 VideoPlayerControls를 담아둘 변수 추가
         private VideoPlayerControls _videoPlayerControls;
@@ -175,6 +177,8 @@ namespace Oculus.Interaction
             {
                 _videoPlayerControls.isDragging = false;
             }
+
+            videoTester.CheckIsCompleted();
         }
 
         #region Inject

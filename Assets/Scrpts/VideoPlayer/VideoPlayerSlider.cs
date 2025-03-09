@@ -25,7 +25,7 @@ namespace VideoPlayerControlScript
 
         public void OnDrag(PointerEventData eventData)
         {
-            //v.videoPlayer.time = videoSlider.value * v.videoPlayer.length;
+
         }
 
     }

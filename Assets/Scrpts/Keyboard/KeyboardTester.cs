@@ -43,7 +43,7 @@ public class KeyboardTester : MonoBehaviour
 
         Toggle activeToggle = InteractionSelector.ActiveToggles().FirstOrDefault();
         string toggleName = activeToggle != null ? activeToggle.name : "Unknown";
-        string fileName = $"Player_{playerNum}_Tangram_{toggleName}.txt";
+        string fileName = $"Player_{playerNum}_Keyboard_{toggleName}.txt";
         filePath = Path.Combine(resultsPath, fileName);
 
         // 코루틴 시작

@@ -1,27 +1,27 @@
 using UnityEngine;
 using TMPro;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 
 public class SentenceDisplayer : MonoBehaviour
 {
     [Header("UI References")]
-    [SerializeField] public TMP_Text testSentenceText;     // 현재 표시되는 문장
-    [SerializeField] public TMP_InputField inputField;       // 사용자가 타이핑하는 InputField
+    [SerializeField] public TMP_Text testSentenceText;   // 현재 표시되는 문장
+    [SerializeField] public TMP_InputField inputField;     // 사용자가 타이핑하는 InputField
 
-    private List<string> allWords = new List<string>();  // phrases.txt에서 읽어온 모든 문장
+    [Header("Text Asset")]
+    public TextAsset phrasesFile;                        // 인스펙터에서 할당할 텍스트 에셋
+
+    private List<string> allWords = new List<string>();   // examplesFile에서 읽어온 모든 문장
     // 문장 길이별로 아직 사용되지 않은 문장들을 저장하는 딕셔너리
     private Dictionary<int, List<string>> availableWordsByLength = new Dictionary<int, List<string>>();
 
     private void Start()
     {
-        // phrases.txt 파일 경로
-        string filePath = Path.Combine(Application.dataPath, "phrases.txt");
-
-        if (File.Exists(filePath))
+        if (phrasesFile != null)
         {
-            string[] lines = File.ReadAllLines(filePath);
+            // TextAsset의 내용을 줄 단위로 분리 (개행 문자 기준)
+            string[] lines = phrasesFile.text.Split(new[] { "\r\n", "\r", "\n" }, System.StringSplitOptions.None);
             allWords.AddRange(lines);
 
             // 문장 길이별로 availableWordsByLength 초기화
@@ -40,7 +40,7 @@ public class SentenceDisplayer : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"phrases.txt 파일을 찾을 수 없습니다. 경로: {filePath}");
+            Debug.LogError("TextAsset examplesFile이 할당되지 않았습니다.");
         }
 
         testSentenceText.text = string.Empty;
