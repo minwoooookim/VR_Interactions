@@ -97,7 +97,7 @@ namespace Oculus.Interaction
                 _videoPlayerControls.isDragging = true;
             }
 
-            handleDisplay.SetActive(true);
+            //handleDisplay.SetActive(true);
             thisSlider.value = _currentValue;
             handleDisplaySelector.UpdateDisplayText(thisSlider.value);
         }
@@ -169,7 +169,7 @@ namespace Oculus.Interaction
                 _relativeAngle = Mathf.Min(_constrainedRelativeAngle, _constraints.MaxAngle.Value);
             }
 
-            handleDisplay.SetActive(false);
+            //handleDisplay.SetActive(false);
 
             if (isVideoKnob && _videoPlayerControls != null)
             {

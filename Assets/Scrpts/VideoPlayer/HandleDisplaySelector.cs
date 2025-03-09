@@ -44,6 +44,6 @@ public class HandleDisplaySelector : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt((float)time / 60f);
         int seconds = Mathf.FloorToInt((float)time % 60f);
-        return $"{minutes:D2}:{seconds:D2}";
+        return $"{minutes:D1}:{seconds:D2}";
     }
 }

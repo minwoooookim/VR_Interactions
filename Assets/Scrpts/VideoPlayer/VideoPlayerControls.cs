@@ -13,6 +13,7 @@ namespace VideoPlayerControlScript
     {
         public VideoPlayer videoPlayer; // VideoPlayer 컴포넌트
         public TextMeshProUGUI timeText;    // 메인 타임 표시 UI (00:00 / 00:00 등)
+        public TextMeshProUGUI videoHandleTimeText; // 핸들 타임 표시 UI
         public GrabbableKnob targetKnob; // 조절할 노브
 
         [Header("Play Button")]
@@ -60,20 +61,23 @@ namespace VideoPlayerControlScript
 
             // 밝기 슬라이더 이벤트 등록
             brightnessSlider.onValueChanged.AddListener(SetBrightness);
+
+            videoPlayer.Play();
+            videoPlayer.Pause();
         }
+
         void Update()
         {
             UpdateTimeText(videoSlider.value);
 
-            // 드래그 중이 아니라면 슬라이더 자동 업데이트
+            // 드래그 중이 아니고 비디오가 재생중이라면 슬라이더 자동 업데이트
             if (!isDragging)
             {
-                UpdateSliderValue();
-                targetKnob.SetKnobValue(videoSlider.value);
+                UpdateVideoSliderValue();
             }
             else if (isDragging)
             {
-                videoPlayer.time = videoSlider.value * videoPlayer.length;
+                SetVideoTime();
             }
         }
 
@@ -84,11 +88,12 @@ namespace VideoPlayerControlScript
             UpdateTimeText(videoSlider.value);
         }
 
-        private void UpdateSliderValue()
+        private void UpdateVideoSliderValue()
         {
             if (videoPlayer.length > 0)
             {
                 videoSlider.value = (float)(videoPlayer.time / videoPlayer.length);
+                targetKnob.SetKnobValue(videoSlider.value);
             }
             else
             {
@@ -100,11 +105,8 @@ namespace VideoPlayerControlScript
         {
             if (timeText == null) return;
 
-            double currentTime = sliderValue * videoPlayer.length;
-            double totalTime = videoPlayer.length;
-
-            string currentTimeString = FormatTime(currentTime);
-            string totalTimeString = FormatTime(totalTime);
+            string currentTimeString = videoHandleTimeText.text; // 비디오의 HandleDisplay를 가져와서 현재 시간으로 표시, 이렇게 함으로써 핸들과 시간을 동기화
+            string totalTimeString = FormatTime(videoPlayer.length);
 
             timeText.text = $"{currentTimeString} / {totalTimeString}";
         }
@@ -114,7 +116,7 @@ namespace VideoPlayerControlScript
         {
             int minutes = Mathf.FloorToInt((float)time / 60f);
             int seconds = Mathf.FloorToInt((float)time % 60f);
-            return $"{minutes:D2}:{seconds:D2}";
+            return $"{minutes:D1}:{seconds:D2}";
         }
 
         public void TogglePlayPause()
@@ -156,6 +158,13 @@ namespace VideoPlayerControlScript
         {
             // 이벤트 등록 해제
             videoPlayer.loopPointReached -= OnVideoEnd;
+        }
+
+        void SetVideoTime()
+        {
+            // 슬라이더 값에 따라 비디오 시간 설정
+            videoPlayer.time = videoSlider.value * videoPlayer.length;
+            targetKnob.SetKnobValue(videoSlider.value);
         }
 
         void SetAudioVolume(float volume)

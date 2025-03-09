@@ -12,20 +12,21 @@ public class SliderEventTrigger : MonoBehaviour, IPointerDownHandler, IPointerUp
 
     private void Start()
     {
-        handleDisplay.SetActive(false);
+        //handleDisplay.SetActive(false);
+        handleDisplay.SetActive(true);
         handleDisplaySelector.UpdateDisplayText(thisSlider.value);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        handleDisplay.SetActive(true);
+        //handleDisplay.SetActive(true);
         handleDisplaySelector.UpdateDisplayText(thisSlider.value);
         targetKnob.SetKnobValue(thisSlider.value);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        handleDisplay.SetActive(false);
+        //handleDisplay.SetActive(false);
     }
 
     public void OnDrag(PointerEventData eventData)
