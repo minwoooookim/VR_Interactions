@@ -34,12 +34,17 @@ public class TangramTester : MonoBehaviour
 
         // 파일 경로 계산
         string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        string resultsPath = Path.Combine(desktopPath, "results");
+
+        // 플레이어 번호를 사용하여 폴더명 설정
+        string playerNum = playerNumber.text;
+        string folderName = $"results_{playerNum}";
+        string resultsPath = Path.Combine(desktopPath, folderName);
+
         if (!Directory.Exists(resultsPath))
         {
             Directory.CreateDirectory(resultsPath);
         }
-        string playerNum = playerNumber.text;
+
         Toggle activeToggle = InteractionSelector.ActiveToggles().FirstOrDefault();
         string toggleName = activeToggle != null ? activeToggle.name : "Unknown";
         string fileName = $"Player_{playerNum}_Tangram_{toggleName}.txt";
