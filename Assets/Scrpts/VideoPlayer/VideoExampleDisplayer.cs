@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 public class VideoExampleDisplayer : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class VideoExampleDisplayer : MonoBehaviour
 
     // 파일에서 불러온 예시들을 저장할 리스트
     private List<string> availableExamples = new List<string>();
+    private string currentExample;
 
     void Start()
     {
@@ -33,7 +35,7 @@ public class VideoExampleDisplayer : MonoBehaviour
         }
 
         // 초기 텍스트 설정
-        videoExamplesText.text = "Example0\n시간: 0:00\n음량: 00\n밝기: 0";
+        videoExamplesText.text = "시간: 0:00\n음량: 00\n밝기: 0";
     }
 
     public void ShowNextExample()
@@ -45,7 +47,7 @@ public class VideoExampleDisplayer : MonoBehaviour
     {
         if (videoExamplesText != null && !string.IsNullOrEmpty(videoExamplesText.text))
         {
-            return videoExamplesText.text;
+            return currentExample;
         }
         else
         {
@@ -71,10 +73,12 @@ public class VideoExampleDisplayer : MonoBehaviour
             int randomIndex = Random.Range(0, availableExamples.Count);
             string nextExample = availableExamples[randomIndex];
 
-            // 선택한 예시를 화면에 출력
-            videoExamplesText.text = nextExample;
+            currentExample = nextExample;
 
-            // 중복 출력을 방지하기 위해 리스트에서 제거
+            // 줄 단위로 분리하고 첫 줄을 제외한 나머지 줄들을 결합합니다.
+            string[] lines = nextExample.Split(new[] { "\r\n", "\n" }, System.StringSplitOptions.None);
+            videoExamplesText.text = lines.Length > 1 ? string.Join("\n", lines.Skip(1)) : nextExample;
+
             availableExamples.RemoveAt(randomIndex);
         }
         else

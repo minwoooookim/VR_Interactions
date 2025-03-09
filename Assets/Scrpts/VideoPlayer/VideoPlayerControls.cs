@@ -14,7 +14,6 @@ namespace VideoPlayerControlScript
         public VideoPlayer videoPlayer; // VideoPlayer 컴포넌트
         public TextMeshProUGUI timeText;    // 메인 타임 표시 UI (00:00 / 00:00 등)
         public TextMeshProUGUI videoHandleTimeText; // 핸들 타임 표시 UI
-        public GrabbableKnob targetKnob; // 조절할 노브
 
         [Header("Play Button")]
         public GameObject playButton; // Play 버튼
@@ -26,6 +25,16 @@ namespace VideoPlayerControlScript
         public Slider videoSlider; // 재생 위치를 조절할 슬라이더
         public Slider audioSlider; // 오디오 볼륨 조절 슬라이더
         public Slider brightnessSlider; // 화면 밝기 조절 슬라이더
+
+        [Header("HandleDisplaySelectors")]
+        public HandleDisplaySelector videoHandleDisplaySelector;
+        public HandleDisplaySelector audioHandleDisplaySelector;
+        public HandleDisplaySelector brightnessHandleDisplaySelector;
+
+        [Header("Knobs")]
+        public GrabbableKnob videoKnob;
+        public GrabbableKnob audioKnob;
+        public GrabbableKnob brightnessKnob;
 
         public Object screenDimmer; // 화면 어둡게 하는 오브젝트
         private Material screenDimmerMaterial; // 화면 어둡게 하는 오브젝트의 Material
@@ -62,6 +71,10 @@ namespace VideoPlayerControlScript
             // 밝기 슬라이더 이벤트 등록
             brightnessSlider.onValueChanged.AddListener(SetBrightness);
 
+            videoKnob.SetKnobValue(videoSlider.value);
+            audioKnob.SetKnobValue(audioSlider.value);
+            brightnessKnob.SetKnobValue(brightnessSlider.value);
+
             videoPlayer.Play();
             videoPlayer.Pause();
         }
@@ -93,7 +106,7 @@ namespace VideoPlayerControlScript
             if (videoPlayer.length > 0)
             {
                 videoSlider.value = (float)(videoPlayer.time / videoPlayer.length);
-                targetKnob.SetKnobValue(videoSlider.value);
+                videoKnob.SetKnobValue(videoSlider.value);
             }
             else
             {
@@ -152,6 +165,8 @@ namespace VideoPlayerControlScript
         {
             // 영상이 끝났을 때 아이콘을 재생 아이콘으로 변경
             buttonImage.sprite = playIcon;
+            videoPlayer.Play();
+            videoPlayer.Pause();
         }
 
         void OnDestroy()
@@ -164,7 +179,7 @@ namespace VideoPlayerControlScript
         {
             // 슬라이더 값에 따라 비디오 시간 설정
             videoPlayer.time = videoSlider.value * videoPlayer.length;
-            targetKnob.SetKnobValue(videoSlider.value);
+            videoKnob.SetKnobValue(videoSlider.value);
         }
 
         void SetAudioVolume(float volume)
@@ -185,12 +200,17 @@ namespace VideoPlayerControlScript
 
         public void ResetPlayer()
         {
-            videoPlayer.Stop();
+            videoPlayer.Pause();
+            videoPlayer.time = 0;
             videoSlider.value = 0;
-            targetKnob.SetKnobValue(0);
             audioSlider.value = 0.5f;
             brightnessSlider.value = 0.5f;
-            //아마 다른 노브도 추가해야 할 것 같음
+            videoKnob.SetKnobValue(videoSlider.value);
+            audioKnob.SetKnobValue(audioSlider.value);
+            brightnessKnob.SetKnobValue(brightnessSlider.value);
+            videoHandleDisplaySelector.UpdateDisplayText(videoSlider.value);
+            audioHandleDisplaySelector.UpdateDisplayText(audioSlider.value);
+            brightnessHandleDisplaySelector.UpdateDisplayText(brightnessSlider.value);
         }
     }
 }

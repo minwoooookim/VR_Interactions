@@ -128,32 +128,31 @@ namespace VideoplayerTesterNamespace
 
         public void CheckIsCompleted()
         {
-            // 현재 예시 텍스트를 가져옵니다.
+            // 현재 예시 텍스트를 가져옴
             string exampleText = videoExampleDisplayer.GetCurrentExample();
             if (string.IsNullOrEmpty(exampleText))
                 return;
 
-            // 줄바꿈을 기준으로 분리합니다.
+            // 줄바꿈 기준으로 분리 (예시 형식은 최소 4줄)
             string[] lines = exampleText.Split(new char[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
-            // 예시 형식은 최소 4줄이어야 합니다.
             if (lines.Length < 4)
                 return;
 
-            // lines[0]은 예시 이름(예: Example3)이고, 나머지는 "레이블: 값" 형식입니다.
-            // 각각의 라인에서 공백 제거 후 비교합니다.
-            string expectedTime = lines[1].Trim();       // "시간: 0:00"
-            string expectedAudio = lines[2].Trim();        // "음량: 0"
-            string expectedBrightness = lines[3].Trim();   // "밝기: 0"
+            // "시간: 0:00"에서 "시간: " 제거 후 남은 부분이 expectedTime (예: "0:00")
+            string expectedTime = lines[1].Replace("시간: ", "").Trim();
+            // "음량: 0"에서 "음량: " 제거 후 남은 부분이 expectedAudio (정수)
+            string expectedAudio = lines[2].Replace("음량: ", "").Trim();
+            // "밝기: 0"에서 "밝기: " 제거 후 남은 부분이 expectedBrightness (정수)
+            string expectedBrightness = lines[3].Replace("밝기: ", "").Trim();
 
             // handle의 텍스트도 공백 제거 후 비교
-            if (videoHandleDisplay.text.Trim() == expectedTime &&
-                audioHandleDisplay.text.Trim() == expectedAudio &&
-                brightnessHandleDisplay.text.Trim() == expectedBrightness)
+            if (videoHandleDisplay.text == expectedTime &&
+                audioHandleDisplay.text == expectedAudio &&
+                brightnessHandleDisplay.text == expectedBrightness)
             {
                 SetCompleted();
             }
         }
-
 
         private void SaveTestResult(string exampleContent, float elapsedSeconds)
         {
