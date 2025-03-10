@@ -1,5 +1,6 @@
 using UnityEngine;
 using Oculus.Interaction;
+using System.Collections.Generic;
 
 public class TangramRespawner : MonoBehaviour
 {
@@ -9,11 +10,18 @@ public class TangramRespawner : MonoBehaviour
     [Header("Poke Interactable")]
     [SerializeField] private PokeInteractable pokeInteractable;
 
-    // 자식 Transform들을 저장할 배열
+    [Header("Respawn Settings")]
+    [SerializeField]
+    [Tooltip("리스폰 후 일정 프레임 동안 리지드바디를 kinematic으로 처리하여 충돌 문제를 방지합니다.")]
+    private int _sleepFrames = 0;
+
+    // 자식 오브젝트(부모 tangramParent 제외)의 초기 상태를 저장
     private Transform[] childTransforms;
     private Vector3[] originalPositions;
     private Quaternion[] originalRotations;
-    private Rigidbody[] childRigidbodies; // 조각 각각에 Rigidbody가 붙어있다면
+    private Vector3[] originalScales;
+    private Rigidbody[] childRigidbodies;
+    private int[] sleepCountDowns;
 
     private void Awake()
     {
@@ -23,22 +31,32 @@ public class TangramRespawner : MonoBehaviour
             return;
         }
 
-        // 자식들(자기 자신 포함)을 모두 가져오기
-        childTransforms = tangramParent.GetComponentsInChildren<Transform>();
+        // tangramParent의 자식들만 가져오기 (자기 자신은 제외)
+        Transform[] allTransforms = tangramParent.GetComponentsInChildren<Transform>();
+        List<Transform> childrenList = new List<Transform>();
+        for (int i = 0; i < allTransforms.Length; i++)
+        {
+            if (allTransforms[i] != tangramParent.transform)
+            {
+                childrenList.Add(allTransforms[i]);
+            }
+        }
+        childTransforms = childrenList.ToArray();
 
         // 배열 크기만큼 초기화
-        originalPositions = new Vector3[childTransforms.Length];
-        originalRotations = new Quaternion[childTransforms.Length];
-        childRigidbodies = new Rigidbody[childTransforms.Length];
+        int count = childTransforms.Length;
+        originalPositions = new Vector3[count];
+        originalRotations = new Quaternion[count];
+        originalScales = new Vector3[count];
+        childRigidbodies = new Rigidbody[count];
+        sleepCountDowns = new int[count];
 
-        // 0번째는 부모 자신이므로, 실제 조각들은 1번째부터일 수도 있음
-        for (int i = 0; i < childTransforms.Length; i++)
+        // 각 자식의 초기 상태(월드 위치, 월드 회전, 로컬 스케일) 저장
+        for (int i = 0; i < count; i++)
         {
-            // 초기 local 위치/회전 저장
-            originalPositions[i] = childTransforms[i].localPosition;
-            originalRotations[i] = childTransforms[i].localRotation;
-
-            // 혹시 자식 조각에 Rigidbody가 있다면 따로 저장
+            originalPositions[i] = childTransforms[i].position;
+            originalRotations[i] = childTransforms[i].rotation;
+            originalScales[i] = childTransforms[i].localScale;
             childRigidbodies[i] = childTransforms[i].GetComponent<Rigidbody>();
         }
 
@@ -63,7 +81,7 @@ public class TangramRespawner : MonoBehaviour
 
     private void HandleStateChanged(InteractableStateChangeArgs args)
     {
-        // 상태 변화 시마다 리셋
+        // 상태 변화 시마다 리스폰 수행
         Respawn();
     }
 
@@ -76,17 +94,43 @@ public class TangramRespawner : MonoBehaviour
     {
         if (childTransforms == null) return;
 
-        // 자식들의 위치/회전 초기화
-        for (int i = 0; i < childTransforms.Length; i++)
+        int count = childTransforms.Length;
+        for (int i = 0; i < count; i++)
         {
-            childTransforms[i].localPosition = originalPositions[i];
-            childTransforms[i].localRotation = originalRotations[i];
+            // 저장된 초기 상태로 복원 (월드 좌표 기준)
+            childTransforms[i].position = originalPositions[i];
+            childTransforms[i].rotation = originalRotations[i];
+            childTransforms[i].localScale = originalScales[i];
 
-            // 물리 상태도 초기화
+            // 리지드바디가 있다면 물리 상태 초기화
             if (childRigidbodies[i] != null)
             {
                 childRigidbodies[i].velocity = Vector3.zero;
                 childRigidbodies[i].angularVelocity = Vector3.zero;
+
+                // 필요시 슬립 프레임 동안 kinematic 처리하여 ghost collision 방지
+                if (!childRigidbodies[i].isKinematic && _sleepFrames > 0)
+                {
+                    sleepCountDowns[i] = _sleepFrames;
+                    childRigidbodies[i].isKinematic = true;
+                }
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        // 각 자식 리지드바디의 슬립 카운트다운을 처리
+        int count = childRigidbodies.Length;
+        for (int i = 0; i < count; i++)
+        {
+            if (childRigidbodies[i] != null && sleepCountDowns[i] > 0)
+            {
+                sleepCountDowns[i]--;
+                if (sleepCountDowns[i] == 0)
+                {
+                    childRigidbodies[i].isKinematic = false;
+                }
             }
         }
     }

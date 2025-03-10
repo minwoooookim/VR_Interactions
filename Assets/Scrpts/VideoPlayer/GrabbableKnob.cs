@@ -1,3 +1,6 @@
+
+// 이 코드는 https://gist.github.com/prnthp/aa4d264bfcd951f39f54ede6ccb8d011의 코드를 수정하여 사용했음.
+
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;

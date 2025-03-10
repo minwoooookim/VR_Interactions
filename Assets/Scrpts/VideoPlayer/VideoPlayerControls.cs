@@ -205,6 +205,9 @@ namespace VideoPlayerControlScript
             videoSlider.value = 0;
             audioSlider.value = 0.5f;
             brightnessSlider.value = 0.5f;
+            videoKnob.SetKnobValue(videoSlider.value);
+            audioKnob.SetKnobValue(audioSlider.value);
+            brightnessKnob.SetKnobValue(brightnessSlider.value);
             videoHandleDisplaySelector.UpdateDisplayText(videoSlider.value);
             audioHandleDisplaySelector.UpdateDisplayText(audioSlider.value);
             brightnessHandleDisplaySelector.UpdateDisplayText(brightnessSlider.value);
