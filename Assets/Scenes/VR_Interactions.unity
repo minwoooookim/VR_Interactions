@@ -1853,10 +1853,10 @@ PrefabInstance:
         \uBAA8\uC591\uACFC \uB3D9\uC77C\uD558\uAC8C \uCE60\uAD50 \uC870\uAC01\uC744
         \uBC30\uCE58\uD574\uC8FC\uC138\uC694.\n3. \uBC30\uCE58\uB97C \uC644\uB8CC\uD558\uBA74,
         \uB2E4\uC74C \uBC84\uD2BC\uC744 \uB20C\uB7EC\uC8FC\uC138\uC694.\n4. \uB2E4\uC74C
-        \uBC84\uD2BC\uC744 \uB204\uB974\uBA74, \uCE60\uAD50\uB180\uC774\uAC00 \uC790\uB3D9
-        \uCD08\uAE30\uD654\uB418\uBA70 3\uCD08 \uB4A4 \uC0C8\uB85C\uC6B4 \uBAA8\uC591\uC774
-        \uC81C\uC2DC\uB429\uB2C8\uB2E4.\n5. \uC704 \uACFC\uC815\uC744 \uCD1D 5\uBC88
-        \uC9C4\uD589\uD558\uBA74 \uC885\uB8CC\uB429\uB2C8\uB2E4.\n\n<\uC778\uD130\uB809\uC158
+        \uBC84\uD2BC\uC744 \uB204\uB974\uBA74, 3\uCD08 \uB4A4 \uC0C8\uB85C\uC6B4
+        \uBAA8\uC591\uC774 \uC81C\uC2DC\uB429\uB2C8\uB2E4.\n5. \uC704 \uACFC\uC815\uC744
+        \uCD1D 5\uBC88 \uC9C4\uD589\uD558\uBA74 \uC885\uB8CC\uB429\uB2C8\uB2E4.\n6.
+        \uC885\uB8CC \uD6C4 \uCE60\uAD50\uC870\uAC01\uC744 \uB9AC\uC2A4\uD3F0\uC2DC\uCF1C\uC8FC\uC138\uC694.\n\n<\uC778\uD130\uB809\uC158
         \uBC29\uBC95 \uCC38\uACE0\uC0AC\uD56D>\n\uCEE8\uD2B8\uB864\uB7EC \uC9C1\uC811\uC785\uB825\uC740
         \uADF8\uB9BD\uBC84\uD2BC(\uC911\uC9C0)\uB85C \uC7A1\uAE30 \uAC00\uB2A5\n\uCEE8\uD2B8\uB864\uB7EC
         \uB808\uC774\uCE90\uC2A4\uD305\uC740 \uD2B8\uB9AC\uAC70\uBC84\uD2BC(\uAC80\uC9C0)\uB85C
@@ -6062,7 +6062,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450394833}
   m_LocalRotation: {x: 0, y: 0.30070576, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 0, z: -0.06}
+  m_LocalPosition: {x: 0, y: 0, z: 0.01}
   m_LocalScale: {x: 0.010000001, y: 0.010000001, z: 0.009999998}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6072,7 +6072,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 35, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.858, y: 0.23499995}
+  m_AnchoredPosition: {x: 0.855, y: 0.23499995}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1453876384
