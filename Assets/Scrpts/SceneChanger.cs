@@ -22,4 +22,34 @@ public class SceneChanger : MonoBehaviour
             Debug.LogWarning("입력된 값이 정수가 아닙니다.");
         }
     }
+
+    public void LoadKeyboardTester()
+    {
+        int value = 0;
+        // 입력받은 텍스트를 정수로 파싱
+        if (int.TryParse(tmpInputField.text, out value))
+        {
+            DataHolder.playerNumber = value;
+            SceneManager.LoadScene("KeyboardTester");
+        }
+        else
+        {
+            Debug.LogWarning("입력된 값이 정수가 아닙니다.");
+        }
+    }
+
+    public void LoadVideoplayerTester()
+    {
+        int value = 0;
+        // 입력받은 텍스트를 정수로 파싱
+        if (int.TryParse(tmpInputField.text, out value))
+        {
+            DataHolder.playerNumber = value;
+            SceneManager.LoadScene("VideoplayerTester");
+        }
+        else
+        {
+            Debug.LogWarning("입력된 값이 정수가 아닙니다.");
+        }
+    }
 }
