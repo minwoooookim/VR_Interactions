@@ -41,12 +41,13 @@ namespace VideoplayerTesterNamespace
             isTestRunning = true;
 
             // 파일 경로 계산
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // 바탕화면 경로
+            string path = Application.persistentDataPath; // 앱 파일 경로
 
             // 플레이어 번호를 사용하여 폴더명 설정
             string playerNum = playerNumber.text;
             string folderName = $"results_{playerNum}";
-            string resultsPath = Path.Combine(desktopPath, folderName);
+            string resultsPath = Path.Combine(path, folderName);
 
             if (!Directory.Exists(resultsPath))
             {
