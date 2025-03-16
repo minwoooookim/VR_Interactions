@@ -2616,23 +2616,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &331584578914848386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7977853613439156431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a07c17aeaa19b409e2d8db44c4c763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: 
-  shiftCharacter: 
-  keyLabel: {fileID: 1219982380915897685}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &405607244709906384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3057,23 +3040,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1626515877165493360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8989055593618039357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a07c17aeaa19b409e2d8db44c4c763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: 
-  shiftCharacter: 
-  keyLabel: {fileID: 209050672030996391}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1688341394568328168
 GameObject:
   m_ObjectHideFlags: 0
@@ -4933,7 +4899,7 @@ GameObject:
   - component: {fileID: 3342822956968665710}
   - component: {fileID: 1028857233743694407}
   - component: {fileID: 1301475806936721391}
-  - component: {fileID: 331584578914848386}
+  - component: {fileID: 7977853613439156432}
   m_Layer: 5
   m_Name: Keyboard Key (2)
   m_TagString: Untagged
@@ -4941,6 +4907,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7977853613439156432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977853613439156431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00594d39ce6500b4fb9c4d8bdc29fbec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: 
+  keyLabel: {fileID: 1219982380915897685}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &7989085948317729651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5313,7 +5295,7 @@ GameObject:
   - component: {fileID: 4354024525637058716}
   - component: {fileID: 2040044644027246773}
   - component: {fileID: 2050184065746205}
-  - component: {fileID: 1626515877165493360}
+  - component: {fileID: 8989055593618039358}
   m_Layer: 5
   m_Name: Keyboard Key (2)
   m_TagString: Untagged
@@ -5321,6 +5303,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8989055593618039358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8989055593618039357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00594d39ce6500b4fb9c4d8bdc29fbec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: 
+  keyLabel: {fileID: 209050672030996391}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
