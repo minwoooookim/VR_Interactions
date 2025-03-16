@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class QuestKeyboardManager : MonoBehaviour
 {
@@ -12,19 +13,22 @@ public class QuestKeyboardManager : MonoBehaviour
 
     void Start()
     {
-        // 인풋필드가 선택될 때 OpenKeyboard()가 호출되도록 리스너 등록
-        targetInputField.onSelect.AddListener(delegate { OpenKeyboard(); });
+        // 인풋필드가 선택될 때 코루틴을 통해 OpenKeyboardWithDelay() 호출
+        targetInputField.onSelect.AddListener(delegate { StartCoroutine(OpenKeyboardWithDelay()); });
     }
 
-    // 키보드 호출 메서드
-    void OpenKeyboard()
+    // 키보드 호출 코루틴 (한 프레임 대기 후 실행)
+    IEnumerator OpenKeyboardWithDelay()
     {
+        yield return null; // UI 업데이트가 완료된 후 한 프레임 대기
+
         // 기존에 열려있는 키보드가 있으면 닫기(옵션)
         if (overlayKeyboard != null)
         {
             overlayKeyboard.active = false;
             overlayKeyboard = null;
         }
+
         // 기본 키보드 타입으로 키보드 열기
         overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
     }
@@ -36,7 +40,7 @@ public class QuestKeyboardManager : MonoBehaviour
         {
             targetInputField.text = overlayKeyboard.text;
 
-            // 필요 시, 키보드가 닫힌 경우에 대한 처리도 추가할 수 있음
+            // 키보드가 닫힌 경우 처리
             if (overlayKeyboard.status == TouchScreenKeyboard.Status.Done ||
                 overlayKeyboard.status == TouchScreenKeyboard.Status.Canceled)
             {

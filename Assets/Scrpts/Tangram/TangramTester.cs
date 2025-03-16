@@ -88,7 +88,7 @@ public class TangramTester : MonoBehaviour
 
             isCompleted = !isCompleted;
             tangramExampleDisplayer.EmptyImage();
-            //tangramRespawner.RespawnTangram(); 현실 칠교놀이도 자동 리스폰 기능은 없기때문에 비활성화
+            tangramRespawner.RespawnTangram(); // 칠교놀이 리스폰
         }
 
         // 전체 테스트가 끝난 후 누적 시간(Total Time)만 별도로 기록

@@ -95,27 +95,37 @@ public class TangramRespawner : MonoBehaviour
         if (childTransforms == null) return;
 
         int count = childTransforms.Length;
+
+        // 먼저, 리지드바디가 있다면 슬립 프레임 적용이 필요한 경우 즉시 kinematic으로 전환
         for (int i = 0; i < count; i++)
         {
-            // 저장된 초기 상태로 복원 (월드 좌표 기준)
+            if (childRigidbodies[i] != null && _sleepFrames > 0)
+            {
+                childRigidbodies[i].isKinematic = true;
+            }
+        }
+
+        // 각 자식 오브젝트의 transform과 물리 상태 초기화
+        for (int i = 0; i < count; i++)
+        {
             childTransforms[i].position = originalPositions[i];
             childTransforms[i].rotation = originalRotations[i];
             childTransforms[i].localScale = originalScales[i];
 
-            // 리지드바디가 있다면 물리 상태 초기화
             if (childRigidbodies[i] != null)
             {
                 childRigidbodies[i].velocity = Vector3.zero;
                 childRigidbodies[i].angularVelocity = Vector3.zero;
 
-                // 필요시 슬립 프레임 동안 kinematic 처리하여 ghost collision 방지
-                if (!childRigidbodies[i].isKinematic && _sleepFrames > 0)
+                if (_sleepFrames > 0)
                 {
                     sleepCountDowns[i] = _sleepFrames;
-                    childRigidbodies[i].isKinematic = true;
                 }
             }
         }
+
+        // 물리 엔진의 변환 정보를 강제로 업데이트
+        Physics.SyncTransforms();
     }
 
     private void FixedUpdate()
