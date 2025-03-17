@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VR_Interactions.unity
     guid: f739756c7d028bb49aaf2c887787f3a1
+  - enabled: 0
+    path: Assets/Scenes/KeyboardTester.unity
+    guid: 918ed7b15159b1a458fcbbbbd1347a45
+  - enabled: 0
+    path: Assets/Scenes/VideoplayerTester.unity
+    guid: 98eb377980924cf4594b6658a20e6e28
+  - enabled: 0
+    path: Assets/Scenes/InitialScene_PC.unity
+    guid: 379e7f606d85a3b468d3018c699f5d06
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 10beb06175e69d34687106bae49dbf79, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: f95e4c1c8be74f540884a989a3a22d5d, type: 2}

@@ -234,17 +234,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pokeInteractable: {fileID: 3811824}
   tangramTester: {fileID: 569112150}
---- !u!114 &9259656 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5782836316306551573, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
-  m_PrefabInstance: {fileID: 4276986500795781627}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &11088506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,17 +2344,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &477211220 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 523617792595847165, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
-  m_PrefabInstance: {fileID: 4276986500795781627}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6493be6dfdaa0c74fa714bdfc0bb1565, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &505229179
 GameObject:
   m_ObjectHideFlags: 0
@@ -8091,10 +8069,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoExampleDisplayer: {fileID: 9202029362261800604}
-  videoPlayerControls: {fileID: 477211220}
+  videoPlayerControls: {fileID: 4332087995251111430}
   playerNumber: {fileID: 205244093}
   InteractionSelector: {fileID: 6769368829359944147}
-  countdownText: {fileID: 9259656}
+  countdownText: {fileID: 7717527581821297390}
   videoHandleDisplay: {fileID: 3987973147516428200}
   audioHandleDisplay: {fileID: 2009953699538239035}
   brightnessHandleDisplay: {fileID: 8048846485558751081}
@@ -13730,6 +13708,10 @@ PrefabInstance:
       propertyPath: videoTester
       value: 
       objectReference: {fileID: 1549189641}
+    - target: {fileID: 4378120406743001698, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: ec15168791d49e6429d1e7b254a91977, type: 3}
     - target: {fileID: 4464828106642963333, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -13868,13 +13850,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829831866294833281, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.2
+      value: -3.18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+--- !u!114 &4332087995251111430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 523617792595847165, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+  m_PrefabInstance: {fileID: 4276986500795781627}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6493be6dfdaa0c74fa714bdfc0bb1565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4359775291826110498
 GameObject:
   m_ObjectHideFlags: 0
@@ -15640,6 +15633,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7717527581821297390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5782836316306551573, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+  m_PrefabInstance: {fileID: 4276986500795781627}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7820214539676035987
 Transform:
   m_ObjectHideFlags: 0
