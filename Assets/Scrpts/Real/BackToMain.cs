@@ -7,6 +7,6 @@ public class BackToMain : MonoBehaviour
 {
     public void LoadInitialScene()
     {
-        SceneManager.LoadScene("InitialScene");
+        SceneManager.LoadScene("InitialScene_PC");
     }
 }
