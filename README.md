@@ -16,6 +16,8 @@
 
 ## 🏗️ 환경 구성
 
+방 자체를 포함한 모든 오브젝트는 Blender를 사용해 직접 모델링하였습니다.  
+
 ![Image](https://github.com/user-attachments/assets/3ab51f63-00f5-43a6-97bf-55019ffae482)
 
 ![Image](https://github.com/user-attachments/assets/1774cf80-6fd2-40bf-96d4-1b2a7a9c6ec6)
@@ -30,4 +32,4 @@
 
 ![Image](https://github.com/user-attachments/assets/b768c957-6cb3-4125-abbf-0b7bd0ef3e0f)
 
-방 자체를 포함한 모든 오브젝트는 Blender를 사용해 직접 모델링하였습니다.  
+
