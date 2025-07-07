@@ -1062,7 +1062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_text
-      value: "\uC2DC\uC791"
+      value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_fontSize
@@ -1188,7 +1188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_text
-      value: "\uC190\uBAA9 \uD0A4\uBCF4\uB4DC \uC804\uD658"
+      value: Wrist keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_fontSize
@@ -2513,6 +2513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tangram Instructions
       objectReference: {fileID: 0}
+    - target: {fileID: 8241900581664599320, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3181,7 +3185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_text
-      value: "\uCE60\uAD50\uC870\uAC01 \uB9AC\uC2A4\uD3F0"
+      value: Reset tangram
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_fontSize
@@ -3629,7 +3633,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 27.9, y: 22}
+  m_SizeDelta: {x: 41.1, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &781893629
 MonoBehaviour:
@@ -3651,7 +3655,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2DC\uAC04: 0:00\r\n\uC74C\uB7C9: 00\r\n\uBC1D\uAE30: 0"
+  m_text: 'Time: 0:00
+
+    Volume: 00
+
+    Brightness: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 152b48916d05b694a99861d9c622969f, type: 2}
   m_sharedMaterial: {fileID: 8174611082349695617, guid: 152b48916d05b694a99861d9c622969f, type: 2}
@@ -3685,7 +3693,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4802,7 +4810,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uCEE8\uD2B8\uB864\uB7EC \uC9C1\uC811\uC785\uB825\n"
+  m_Text: 'Controller
+
+'
 --- !u!222 &1007206168
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5596,7 +5606,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC900\uBE44"
+  m_text: Ready
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 152b48916d05b694a99861d9c622969f, type: 2}
   m_sharedMaterial: {fileID: 8174611082349695617, guid: 152b48916d05b694a99861d9c622969f, type: 2}
@@ -5867,6 +5877,10 @@ PrefabInstance:
     - target: {fileID: 8241900581664599320, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_Name
       value: Video Instructions
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241900581664599320, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6579,7 +6593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_text
-      value: "\uB2E4\uC74C"
+      value: Next
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_fontSize
@@ -8562,7 +8576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_text
-      value: "\uC2DC\uC791"
+      value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_fontSize
@@ -8688,7 +8702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_text
-      value: "\uC2DC\uC791"
+      value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 7154537131306269757, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_fontSize
@@ -9426,6 +9440,10 @@ PrefabInstance:
     - target: {fileID: 8241900581664599320, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
       propertyPath: m_Name
       value: Keyboard Instructions
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241900581664599320, guid: d1ae09a21a9852645a1172f1f322a5db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10747,7 +10765,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uCEE8\uD2B8\uB864\uB7EC \uB808\uC774\uCE90\uC2A4\uD305\n"
+  m_Text: 'Raycast
+
+'
 --- !u!222 &1971419724
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10831,7 +10851,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uD578\uB4DC\uD2B8\uB798\uD0B9 \uC9C1\uC811 \uC785\uB825\n"
+  m_Text: 'Hand tracking
+
+'
 --- !u!222 &2004307546
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11584,7 +11606,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uD578\uB4DC\uD2B8\uB798\uD0B9 \uC9C1\uC811 \uC785\uB825\n"
+  m_Text: 'Hand tracking
+
+'
 --- !u!224 &567686222191461708
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11935,7 +11959,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uCEE8\uD2B8\uB864\uB7EC \uB808\uC774\uCE90\uC2A4\uD305\n"
+  m_Text: 'Raycast
+
+'
 --- !u!1 &1489154636416235385
 GameObject:
   m_ObjectHideFlags: 0
@@ -12569,7 +12595,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uCEE8\uD2B8\uB864\uB7EC \uC9C1\uC811\uC785\uB825\n"
+  m_Text: 'Controller
+
+'
 --- !u!1 &3228232903914498822
 GameObject:
   m_ObjectHideFlags: 0
@@ -13711,7 +13739,7 @@ PrefabInstance:
     - target: {fileID: 4378120406743001698, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: ec15168791d49e6429d1e7b254a91977, type: 3}
+      objectReference: {fileID: 32900000, guid: 1d966f90ee4c33a44a702b229d3dbe66, type: 3}
     - target: {fileID: 4464828106642963333, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -13731,6 +13759,10 @@ PrefabInstance:
     - target: {fileID: 4914650125043578939, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782836316306551573, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
+      propertyPath: m_text
+      value: Ready
       objectReference: {fileID: 0}
     - target: {fileID: 5937705505388263692, guid: d0ce2d728dbb0ba46ab2a784f3c18dbd, type: 3}
       propertyPath: m_Pivot.x
@@ -14524,7 +14556,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 49.944, y: 49.359}
-  m_SizeDelta: {x: 35, y: 30}
+  m_SizeDelta: {x: 49.8, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5847884795072757711
 GameObject:
@@ -15926,7 +15958,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uC190\uBAA9 \uD68C\uC804\n"
+  m_Text: 'Wrist rotation
+
+'
 --- !u!1 &8583291936006356357
 GameObject:
   m_ObjectHideFlags: 0
@@ -15953,6 +15987,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 415827412}
     m_Modifications:
+    - target: {fileID: 516752763345440143, guid: e4ee69fbd48ee4c4f8e11f9a9c5c38fb, type: 3}
+      propertyPath: m_Text
+      value: 'Hand tracking
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474335902653689353, guid: e4ee69fbd48ee4c4f8e11f9a9c5c38fb, type: 3}
+      propertyPath: m_Text
+      value: 'Raycast
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188135101349052247, guid: e4ee69fbd48ee4c4f8e11f9a9c5c38fb, type: 3}
+      propertyPath: m_Text
+      value: 'Controller
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 5823004332582877794, guid: e4ee69fbd48ee4c4f8e11f9a9c5c38fb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -16032,6 +16084,12 @@ PrefabInstance:
     - target: {fileID: 5823004332582877794, guid: e4ee69fbd48ee4c4f8e11f9a9c5c38fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511999023198313188, guid: e4ee69fbd48ee4c4f8e11f9a9c5c38fb, type: 3}
+      propertyPath: m_Text
+      value: 'Wrist rotation
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 9142290916880733835, guid: e4ee69fbd48ee4c4f8e11f9a9c5c38fb, type: 3}
       propertyPath: m_Name
@@ -16202,6 +16260,10 @@ PrefabInstance:
     - target: {fileID: 363709465873648215, guid: 027b7f5a740dcf84dbe74fa1d0661b25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089152911751700012, guid: 027b7f5a740dcf84dbe74fa1d0661b25, type: 3}
+      propertyPath: m_text
+      value: Ready
       objectReference: {fileID: 0}
     - target: {fileID: 5868165206459068673, guid: 027b7f5a740dcf84dbe74fa1d0661b25, type: 3}
       propertyPath: m_Name
