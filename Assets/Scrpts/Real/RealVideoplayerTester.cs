@@ -135,11 +135,11 @@ namespace VideoplayerTesterNamespace
                 return;
 
             // "시간: 0:00"에서 "시간: " 제거 후 남은 부분이 expectedTime (예: "0:00")
-            string expectedTime = lines[1].Replace("시간: ", "").Trim();
+            string expectedTime = lines[1].Replace("Time: ", "").Trim();
             // "음량: 0"에서 "음량: " 제거 후 남은 부분이 expectedAudio (정수)
-            string expectedAudio = lines[2].Replace("음량: ", "").Trim();
+            string expectedAudio = lines[2].Replace("Volume: ", "").Trim();
             // "밝기: 0"에서 "밝기: " 제거 후 남은 부분이 expectedBrightness (정수)
-            string expectedBrightness = lines[3].Replace("밝기: ", "").Trim();
+            string expectedBrightness = lines[3].Replace("Brightness: ", "").Trim();
 
             // handle의 텍스트도 공백 제거 후 비교
             if (videoHandleDisplay.text == expectedTime &&

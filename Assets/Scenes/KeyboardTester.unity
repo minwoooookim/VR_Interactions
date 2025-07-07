@@ -322,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 91fb2e4436785794aac85d08701dcd0a, type: 3}
     - target: {fileID: 1384532762692644500, guid: 027b7f5a740dcf84dbe74fa1d0661b25, type: 3}
       propertyPath: m_text
-      value: 
+      value: Test Sentence
       objectReference: {fileID: 0}
     - target: {fileID: 2487670940301688780, guid: 027b7f5a740dcf84dbe74fa1d0661b25, type: 3}
       propertyPath: m_SizeDelta.x
