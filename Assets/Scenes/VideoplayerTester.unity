@@ -728,7 +728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBA54\uC778\uBA54\uB274"
+  m_text: Back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 152b48916d05b694a99861d9c622969f, type: 2}
   m_sharedMaterial: {fileID: 8174611082349695617, guid: 152b48916d05b694a99861d9c622969f, type: 2}
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2DC\uC791"
+  m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 152b48916d05b694a99861d9c622969f, type: 2}
   m_sharedMaterial: {fileID: 8174611082349695617, guid: 152b48916d05b694a99861d9c622969f, type: 2}
@@ -1146,7 +1146,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 302, y: 0}
-  m_SizeDelta: {x: 127.1, y: 118.8}
+  m_SizeDelta: {x: 144.8, y: 118.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549952580
 MonoBehaviour:
@@ -1168,7 +1168,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2DC\uAC04 0:00\r\n\uC74C\uB7C9 00\r\n\uBC1D\uAE30 0"
+  m_text: 'Time 0:00
+
+    Volume 00
+
+    Brightness 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 152b48916d05b694a99861d9c622969f, type: 2}
   m_sharedMaterial: {fileID: 8174611082349695617, guid: 152b48916d05b694a99861d9c622969f, type: 2}
@@ -1202,7 +1206,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1276,7 +1280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1925476103
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3371,7 +3375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC900\uBE44"
+  m_text: Ready
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 152b48916d05b694a99861d9c622969f, type: 2}
   m_sharedMaterial: {fileID: 8174611082349695617, guid: 152b48916d05b694a99861d9c622969f, type: 2}
@@ -3380,8 +3384,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294908160
-  m_fontColor: {r: 0, g: 0.0968976, b: 1, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

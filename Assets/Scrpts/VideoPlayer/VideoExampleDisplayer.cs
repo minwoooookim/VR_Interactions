@@ -33,9 +33,6 @@ public class VideoExampleDisplayer : MonoBehaviour
         {
             Debug.LogError("예시 파일이 할당되지 않았습니다!");
         }
-
-        // 초기 텍스트 설정
-        videoExamplesText.text = "시간: 0:00\n음량: 00\n밝기: 0";
     }
 
     public void ShowNextExample()
